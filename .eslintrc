@@ -1,0 +1,10 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2023
+  },
+  "extends": ["eslint:recommended", "prettier"],
+  "env": {
+    "node": true,
+    "browser": true
+  }
+}
