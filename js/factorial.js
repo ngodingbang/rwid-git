@@ -1,12 +1,21 @@
 /**
+ * Count factorial number from the given "n" value.
+ *
  * @param {number} n
  */
 function countFactorial(n) {
-  let result = 1;
+  // write your code here
+  return n;
+}
 
-  for (let index = n; index > 0; index--) {
-    result = result * index;
-  }
+/**
+ * @param {Event} event
+ */
+function submitForm(event) {
+  event.preventDefault();
 
-  return result;
+  const n = event.target["n"].value;
+  const result = countFactorial(n);
+
+  document.getElementById("result").textContent = result;
 }
