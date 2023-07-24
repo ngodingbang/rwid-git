@@ -21,10 +21,16 @@ function generateFizzBuzz(sequence) {
 function submitForm(event) {
   event.preventDefault();
 
-  const sequence = event.target["sequence"].value;
-  const result = generateFizzBuzz(sequence);
+  try {
+    const sequence = event.target["sequence"].value;
 
-  document.getElementById("result").textContent = JSON.stringify(result);
+    const result = generateFizzBuzz(sequence);
+
+    document.getElementById("result").textContent = JSON.stringify(result);
+  } catch (error) {
+    alert(error.message);
+    console.error(error);
+  }
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
