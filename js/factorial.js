@@ -26,12 +26,12 @@ function countFactorialUsingRecursive(n) {
 function submitForm(event) {
   event.preventDefault();
 
-  const n = event.target["n"].value;
-  const method = event.target["method"].value;
-
-  let result;
-
   try {
+    const n = event.target["n"].value;
+    const method = event.target["method"].value;
+
+    let result;
+
     if (method === "loop") {
       result = countFactorialUsingLoop(n);
     } else if (method === "recursive") {
@@ -39,12 +39,12 @@ function submitForm(event) {
     } else {
       throw new Error("Method must be loop or recursive.");
     }
+
+    document.getElementById("result").textContent = result;
   } catch (error) {
     alert(error.message);
     console.error(error);
   }
-
-  document.getElementById("result").textContent = result;
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
