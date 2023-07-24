@@ -4,7 +4,6 @@ import { parseNumber } from "../helper.js";
  * Create an array filled by fibonacci sequence using loop way.
  *
  * @param {number} sequence
- * @returns {number}
  */
 function generateFibonacciUsingLoop(sequence) {
   // write your code here
@@ -15,7 +14,6 @@ function generateFibonacciUsingLoop(sequence) {
  * Create an array filled by fibonacci sequence using recursive way.
  *
  * @param {number} sequence
- * @returns {number}
  */
 function generateFibonacciUsingRecursive(sequence) {
   // write your code here
