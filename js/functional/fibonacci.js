@@ -22,10 +22,7 @@ function generateFibonacciUsingRecursive(sequence) {
   return [];
 }
 
-/**
- * @param {Event} event
- */
-function submitForm(event) {
+document.getElementById("form").addEventListener("submit", function (event) {
   event.preventDefault();
 
   try {
@@ -47,8 +44,4 @@ function submitForm(event) {
     alert(error.message);
     console.error(error);
   }
-}
-
-document.getElementById("form").addEventListener("submit", function (event) {
-  submitForm(event);
 });
