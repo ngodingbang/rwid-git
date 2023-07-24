@@ -1,3 +1,5 @@
+import { parseNumber } from "./helper.js";
+
 /**
  * Count factorial number from the given "n" value using loop way.
  *
@@ -44,3 +46,7 @@ function submitForm(event) {
 
   document.getElementById("result").textContent = result;
 }
+
+document.getElementById("form").addEventListener("submit", function (event) {
+  submitForm(event);
+});
