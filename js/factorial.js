@@ -6,8 +6,15 @@ import { parseNumber } from "./helper.js";
  * @param {number} n
  */
 function countFactorialUsingLoop(n) {
-  // write your code here
-  return n;
+  n = parseNumber(n);
+
+  let result = 1;
+
+  for (let index = n; index > 0; index--) {
+    result = result * index;
+  }
+
+  return result;
 }
 
 /**
@@ -16,8 +23,13 @@ function countFactorialUsingLoop(n) {
  * @param {number} n
  */
 function countFactorialUsingRecursive(n) {
-  // write your code here
-  return n;
+  n = parseNumber(n);
+
+  if (n < 2) {
+    return 1;
+  }
+
+  return n * countFactorialUsingRecursive(n - 1);
 }
 
 /**
