@@ -11,3 +11,11 @@ export function parseNumber(value) {
 
   return value;
 }
+
+/**
+ * @param {*} value
+ * @returns {string}
+ */
+export function parseString(value) {
+  return `${value}`;
+}
