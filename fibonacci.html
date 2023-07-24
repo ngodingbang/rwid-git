@@ -14,7 +14,7 @@
   <body>
     <h1>Fibonacci</h1>
 
-    <form id="form" onsubmit="submitForm(event);">
+    <form id="form">
       <label for="sequence">Input the length of the array</label>
       <input
         type="number"
@@ -25,6 +25,28 @@
         required="required"
       />
 
+      <br />
+
+      <label>Choose the method</label>
+      <input
+        type="radio"
+        name="method"
+        id="method-loop"
+        value="loop"
+        required="required"
+      />
+      <label for="method-loop">Loop</label>
+      <input
+        type="radio"
+        name="method"
+        id="method-recursive"
+        value="recursive"
+        required="required"
+      />
+      <label for="method-recursive">Recursive</label>
+
+      <br />
+
       <button type="submit">Generate Fibonacci</button>
     </form>
 
@@ -33,6 +55,6 @@
 
     <p><a href="/">Back to Homepage</a></p>
 
-    <script src="js/fibonacci.js"></script>
+    <script type="module" src="js/fibonacci.js"></script>
   </body>
 </html>
