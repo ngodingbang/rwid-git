@@ -14,9 +14,39 @@
   <body>
     <h1>Palindrome</h1>
 
-    <form id="form" onsubmit="submitForm(event);">
+    <form id="form">
       <label for="word">Input the word</label>
       <input type="text" name="word" id="word" required="required" />
+
+      <br />
+
+      <label>Choose the method</label>
+      <input
+        type="radio"
+        name="method"
+        id="method-reverse"
+        value="reverse"
+        required="required"
+      />
+      <label for="method-reverse">Reverse</label>
+      <input
+        type="radio"
+        name="method"
+        id="method-loop"
+        value="loop"
+        required="required"
+      />
+      <label for="method-loop">Loop</label>
+      <input
+        type="radio"
+        name="method"
+        id="method-recursive"
+        value="recursive"
+        required="required"
+      />
+      <label for="method-recursive">Recursive</label>
+
+      <br />
 
       <button type="submit">Check Palindrome</button>
     </form>
@@ -27,6 +57,6 @@
 
     <p><a href="/">Back to Homepage</a></p>
 
-    <script src="js/palindrome.js"></script>
+    <script type="module" src="js/palindrome.js"></script>
   </body>
 </html>
