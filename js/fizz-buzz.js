@@ -1,3 +1,5 @@
+import { parseNumber } from "./helper.js";
+
 /**
  * Create an array filled by "fizz", "buzz", or "fizz buzz" based on
  * this requirement below (highest priority from above).
@@ -24,3 +26,7 @@ function submitForm(event) {
 
   document.getElementById("result").textContent = JSON.stringify(result);
 }
+
+document.getElementById("form").addEventListener("submit", function (event) {
+  submitForm(event);
+});
