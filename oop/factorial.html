@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RWID Git - Factorial</title>
+    <link
+      rel="shortcut icon"
+      href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <h1>Factorial (OOP)</h1>
+
+    <form id="form">
+      <label for="n">Input the n number</label>
+      <input
+        type="number"
+        name="n"
+        id="n"
+        min="0"
+        step="1"
+        required="required"
+      />
+
+      <br />
+
+      <label>Choose the method</label>
+      <input
+        type="radio"
+        name="method"
+        id="method-loop"
+        value="loop"
+        required="required"
+      />
+      <label for="method-loop">Loop</label>
+      <input
+        type="radio"
+        name="method"
+        id="method-recursive"
+        value="recursive"
+        required="required"
+      />
+      <label for="method-recursive">Recursive</label>
+
+      <br />
+
+      <button type="submit">Count Factorial</button>
+    </form>
+
+    <p>
+      <strong>Result: <span id="result">-</span></strong>
+    </p>
+
+    <p><a href="/">Back to Homepage</a></p>
+
+    <script type="module" src="../js/oop/Factorial.js"></script>
+  </body>
+</html>
