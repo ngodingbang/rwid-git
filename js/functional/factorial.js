@@ -1,4 +1,4 @@
-import { parseNumber } from "./helper.js";
+import { parseNumber } from "../helper.js";
 
 /**
  * Count factorial number from the given "n" value using loop way.
