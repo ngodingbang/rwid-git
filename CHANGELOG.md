@@ -4,6 +4,10 @@ All notable changes to `RWID Git` will be documented in this file.
 
 ## [Unreleased](https://github.com/ngodingbang/rwid-git/compare/0.1.0...develop)
 
+## [0.2.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.1.0) - 2023-??-??
+
+- chore: add "https://github.com/ianriizky/rwid-git" into community projects section on README.md by [@ianriizky](https://github.com/ianriizky) in [#1](https://github.com/ngodingbang/rwid-git/pull/1).
+
 ## [0.1.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.1.0) - 2023-07-25
 
 - feat: finish factorial html page by [@ngodingbang](https://github.com/ngodingbang) in [#5a2fd73](https://github.com/ngodingbang/rwid-git/commit/5a2fd73cfc8791066789d3e760504f730b9640a5).
