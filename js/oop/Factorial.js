@@ -11,7 +11,7 @@ export class Factorial {
     this.n = parseNumber(n);
   }
 
-  // write your code here
+  // write your code heres
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
