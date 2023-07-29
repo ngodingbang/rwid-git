@@ -1,0 +1,14 @@
+<li class="nav-item dropdown{{ activeClassAttribute }}">
+  <a
+    href="#"
+    class="nav-link has-dropdown"
+    data-toggle="dropdown"
+    title="{{ description }}"
+    aria-label="{{ description }}"
+  >
+    <i class="{{ icon }}"></i> <span>{{ name }}</span>
+  </a>
+  <ul class="dropdown-menu">
+    {{{ dropdownMenuElement }}}
+  </ul>
+</li>
