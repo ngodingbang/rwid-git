@@ -1,7 +1,7 @@
-import { loadCommunityProject } from "./js/community-project.js";
+import { loadIntoSection as loadCommunityProjectIntoSection } from "./js/community-project.js";
 import { loadStislaJs } from "./js/stisla.js";
-import { loadStudyCase } from "./js/study-case.js";
+import { loadIntoSidebar as loadStudyCaseIntoSidebar } from "./js/study-case.js";
 
-await loadStudyCase();
-await loadCommunityProject();
+await loadStudyCaseIntoSidebar();
+await loadCommunityProjectIntoSection();
 await loadStislaJs();

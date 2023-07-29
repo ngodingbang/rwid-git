@@ -3,17 +3,23 @@ import { fetchJson, renderTemplate } from "./helper.js";
 /**
  * Get collection of "community-projects" data from the specified path.
  *
- * @param {string} path
- * @returns {Promise<Array<{
-      name: string;
-      description: string;
-      image?: string;
-      git_url: string;
-      badge?: string;
-    }>>}
+ * @param {string | undefined} path
+ * @returns {Promise<import("./community-project-d.ts").Records>}
  */
-export function getAllCommunityProject(path) {
-  return fetchJson(path);
+export function all(path = undefined) {
+  return fetchJson(path || "/community-projects.json");
+}
+
+/**
+ * Get specified collection of "community-projects" data from the specified path.
+ *
+ * @param {import("./community-project-d.ts").Name} name
+ * @param {string | undefined} path
+ */
+export async function get(name, path = undefined) {
+  const records = await all(path);
+
+  return records.find(record => record.name === name);
 }
 
 /**
@@ -21,21 +27,19 @@ export function getAllCommunityProject(path) {
  *
  * @param {string} sidebarElementId
  */
-export async function loadCommunityProject(
-  elementId = "section-community-project",
-) {
+export async function loadIntoSection(elementId = "section-community-project") {
   try {
-    const projects = await getAllCommunityProject("/community-projects.json");
+    const records = await all();
 
     const element = document.getElementById(elementId);
 
-    for (const project of projects.reverse()) {
+    for (const record of records.reverse()) {
       const html = await renderTemplate("../template/community-project.html", {
-        name: project.name,
-        description: project.description,
-        image: project.image,
-        git_url: project.git_url,
-        badge: project.badge,
+        name: record.name,
+        description: record.description,
+        image: record.image,
+        git_url: record.git_url,
+        badge: record.badge,
       });
 
       element.innerHTML += html;
