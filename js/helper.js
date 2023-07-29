@@ -1,3 +1,5 @@
+import Mustache from "./mustache.js";
+
 /**
  * @param {*} value
  * @returns {number}
@@ -47,4 +49,36 @@ export async function loadJavaScript(attributes) {
       return reject(error);
     }
   });
+}
+
+/**
+ * @param {string} path
+ */
+export async function fetchJson(path) {
+  const result = await fetch(path);
+
+  return result.json();
+}
+
+/**
+ * @param {string} path
+ */
+export async function fetchText(path) {
+  const result = await fetch(path);
+
+  return result.text();
+}
+
+/**
+ * Render an HTML template using Mustache.js.
+ *
+ * @param {string} path
+ * @param {object} data
+ *
+ * @see https://github.com/janl/mustache.js
+ */
+export async function renderTemplate(path, data = {}) {
+  const template = await fetchText(path);
+
+  return Mustache.render(template, data);
 }
