@@ -21,7 +21,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 ## Community Projects
 
 - [ianriizky/rwid-git](https://github.com/ianriizky/rwid-git)
-- **and more...**
+- [itsmeeep/rwid-git-2](https://github.com/itsmeeep/rwid-git-2)
 
 ## License
 
