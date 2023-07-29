@@ -20,6 +20,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Community Projects
 
+- [azkatallah/rwid-git-2](https://github.com/azkatallah/rwid-git-2)
 - **and more...**
 
 ## License
