@@ -20,7 +20,9 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Community Projects
 
-- **and more...**
+- [lecodingdev/rwid-git](https://github.com/lecodingdev/rwid-git)
+
+* **and more...**
 
 ## License
 
