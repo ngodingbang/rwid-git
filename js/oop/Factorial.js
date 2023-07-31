@@ -12,6 +12,23 @@ export class Factorial {
   }
 
   // write your code here
+  loop() {
+    let result = 1;
+
+    for (let index = this.n; index > 0; index--) {
+      result = result * index;
+    }
+
+    return result;
+  }
+
+  recursive() {
+    if (this.n < 2) {
+      return 1;
+    }
+
+    return this.n * new Factorial(this.n - 1).recursive();
+  }
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
@@ -21,7 +38,10 @@ document.getElementById("form").addEventListener("submit", function (event) {
     const n = event.target["n"].value;
     const method = event.target["method"].value;
 
-    const result = new Factorial(n);
+    const result =
+      method === "loop"
+        ? new Factorial(n).loop()
+        : new Factorial(n).recursive();
 
     document.getElementById("result").textContent = result;
   } catch (error) {
