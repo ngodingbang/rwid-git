@@ -2,11 +2,13 @@
 
 All notable changes to `RWID Git` will be documented in this file.
 
-## [Unreleased](https://github.com/ngodingbang/rwid-git/compare/0.1.0...develop)
+## [Unreleased](https://github.com/ngodingbang/rwid-git/compare/1.0.0...develop)
 
-## [0.2.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.1.0) - 2023-??-??
+## [1.0.0](https://github.com/ngodingbang/rwid-git/releases/tag/1.0.0) - 2023-??-??
 
-- chore: add "https://github.com/ianriizky/rwid-git" into community projects section on README.md by [@ianriizky](https://github.com/ianriizky) in [#1](https://github.com/ngodingbang/rwid-git/pull/1).
+- chore: add [ianriizky/rwid-git](https://github.com/ianriizky/rwid-git) into community projects section on README.md by [@ianriizky](https://github.com/ianriizky) in [#1](https://github.com/ngodingbang/rwid-git/pull/1).
+- chore: use stisla as main template by [@ngodingbang](https://github.com/ngodingbang) in [#e656e3f](https://github.com/ngodingbang/rwid-git/commit/e656e3fb67dbda71606dfc857f1aee0c2af029b5).
+- chore: create fetchJson(), fetchText(), and renderTemplate() on helper js by [@ngodingbang](https://github.com/ngodingbang) in [#441e698](https://github.com/ngodingbang/rwid-git/commit/441e698ffd6e9c3cd6a0a20a56db251985138c73).
 
 ## [0.1.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.1.0) - 2023-07-25
 
