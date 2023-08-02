@@ -1,21 +1,24 @@
 import { parseString } from "../helper.js";
 
 /**
+ * Add cleanString to avoid repeating the cleaning process for cleanedValue in each function.
+ *
+ * @param {string} value
+ */
+function cleanString(value) {
+  return value.toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+/**
  * Determine whether the given value is a palindrome or not using reverse way.
  *
  * @param {string} value
  */
 function isPalindromeUsingReverse(value) {
-  // write your code here
   value = parseString(value);
 
-  // Remove non-alphanumeric characters and convert to lowercase
-  const cleanedValue = value.toLowerCase().replace(/[^a-z0-9]/g, "");
-
-  // Reverse the cleaned value using array methods
+  const cleanedValue = cleanString(value);
   const reversedValue = cleanedValue.split("").reverse().join("");
-
-  // Check if the cleaned value and the reversed value are the same
   return cleanedValue === reversedValue;
 }
 
@@ -25,23 +28,17 @@ function isPalindromeUsingReverse(value) {
  * @param {string} value
  */
 function isPalindromeUsingLoop(value) {
-  // write your code here
   value = parseString(value);
 
-  const cleanedValue = value.toLowerCase().replace(/[^a-z0-9]/g, "");
-
-  // Initialize length of cleanedValue
+  const cleanedValue = cleanString(value);
   const length = cleanedValue.length;
-
-  // Loop through the characters to check for palindrome
-  for (let i = 0; i < length / 2; i++) {
-    // Check each position between the first and the last character
-    if (cleanedValue[i] !== cleanedValue[length - 1 - i]) {
-      return false; // If characters don't match, it's not a palindrome
+  for (let index = 0; index < length / 2; index++) {
+    if (cleanedValue[index] !== cleanedValue[length - 1 - index]) {
+      return false;
     }
   }
 
-  return true; // All characters match, it's a palindrome
+  return true;
 }
 
 /**
@@ -51,21 +48,17 @@ function isPalindromeUsingLoop(value) {
  * @param {number} index
  */
 function isPalindromeUsingRecursive(value, index = 0) {
-  // write your code here
-  // Remove non-alphabetic characters from the value and convert it to lowercase
-  value = value.replace(/[^a-zA-Z]/g, "").toLowerCase();
+  value = parseString(value);
 
-  // Base case: if the index reaches the middle of the string or beyond, the string is a palindrome
-  if (index >= Math.floor(value.length / 2)) {
+  const cleanedValue = cleanString(value);
+  if (index >= Math.floor(cleanedValue.length / 2)) {
     return true;
   }
 
-  // If the character at the first index and the last index are not the same, the string is not a palindrome
-  if (value[index] !== value[value.length - 1 - index]) {
+  if (cleanedValue[index] !== cleanedValue[cleanedValue.length - 1 - index]) {
     return false;
   }
 
-  // Recursively call the function with an incremented index to check the next character
   return isPalindromeUsingRecursive(value, index + 1);
 }
 
