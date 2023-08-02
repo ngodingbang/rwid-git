@@ -22,7 +22,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 - [lecodingdev/rwid-git](https://github.com/lecodingdev/rwid-git)
 
-* **and more...**
+- * **and more...**
 
 ## License
 
