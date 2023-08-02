@@ -11,7 +11,6 @@ export class FizzBuzz {
     this.sequence = parseNumber(sequence);
   }
 
-  // write your code here
   generate() {
     let result = [];
 
