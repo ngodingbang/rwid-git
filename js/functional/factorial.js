@@ -7,11 +7,10 @@ import { parseNumber } from "../helper.js";
  */
 function countFactorialUsingLoop(n) {
   n = parseNumber(n);
+  let result = n <= 0 ? 1 : n;
 
-  let result = 1;
-
-  for (let index = n; index > 0; index--) {
-    result = result * index;
+  for (let i = 1; i < n; i++) {
+    result = result * (n - i);
   }
 
   return result;
@@ -27,9 +26,9 @@ function countFactorialUsingRecursive(n) {
 
   if (n < 2) {
     return 1;
+  } else {
+    return n * countFactorialUsingRecursive(n - 1);
   }
-
-  return n * countFactorialUsingRecursive(n - 1);
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {

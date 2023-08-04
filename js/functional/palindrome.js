@@ -1,4 +1,4 @@
-import { parseString } from "../helper.js";
+// import { parseString } from "../helper.js";
 
 /**
  * Determine whether the given value is a palindrome or not using reverse way.
@@ -6,8 +6,11 @@ import { parseString } from "../helper.js";
  * @param {string} value
  */
 function isPalindromeUsingReverse(value) {
-  // write your code here
-  return true;
+  let array = value.split("");
+
+  if (value == array.reverse().join("")) {
+    return true;
+  }
 }
 
 /**
@@ -16,19 +19,31 @@ function isPalindromeUsingReverse(value) {
  * @param {string} value
  */
 function isPalindromeUsingLoop(value) {
-  // write your code here
-  return true;
+  let array = value.split("");
+  let newArray = [];
+
+  for (let i = array.length - 1; i >= 0; i--) {
+    newArray.push(array[i]);
+  }
+
+  if (value == newArray.join("")) {
+    return true;
+  }
 }
 
 /**
  * Determine whether the given value is a palindrome or not using recursive way.
  *
  * @param {string} value
- * @param {number} index
  */
-function isPalindromeUsingRecursive(value, index = 0) {
-  // write your code here
-  return true;
+function isPalindromeUsingRecursive(str) {
+  if (str.length < 2) {
+    return true;
+  }
+
+  if (str.slice(0, 1) == str.slice(-1)) {
+    return isPalindromeUsingRecursive(str.slice(1, -1));
+  }
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
@@ -60,3 +75,5 @@ document.getElementById("form").addEventListener("submit", function (event) {
     console.error(error);
   }
 });
+
+// console.log(isPalindromeUsingRecursive("hehe"));

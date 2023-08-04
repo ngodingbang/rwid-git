@@ -1,4 +1,4 @@
-import { parseNumber } from "../helper.js";
+// import { parseNumber } from "../helper.js";
 
 /**
  * Create an array filled by fibonacci sequence using loop way.
@@ -6,8 +6,19 @@ import { parseNumber } from "../helper.js";
  * @param {number} sequence
  */
 function generateFibonacciUsingLoop(sequence) {
-  // write your code here
-  return [];
+  let result = [];
+  let n1 = 0,
+    n2 = 1,
+    nextTerm;
+
+  for (let i = 1; i <= sequence; i++) {
+    result.push(n1);
+    nextTerm = n1 + n2;
+    n1 = n2;
+    n2 = nextTerm;
+  }
+
+  return result;
 }
 
 /**
@@ -16,8 +27,12 @@ function generateFibonacciUsingLoop(sequence) {
  * @param {number} sequence
  */
 function generateFibonacciUsingRecursive(sequence) {
-  // write your code here
-  return [];
+  if (sequence <= 2) return [0, 1].slice(0, sequence);
+
+  const result = generateFibonacciUsingRecursive(sequence - 1);
+  result.push(result[result.length - 1] + result[result.length - 2]);
+
+  return result;
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
