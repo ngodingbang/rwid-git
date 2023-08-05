@@ -20,7 +20,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Community Projects
 
-- [ianriizky/rwid-git](https://github.com/ianriizky/rwid-git)
+- [ridhoriky/rwid-git2](https://github.com/ridhoriky/rwid-git2)
 - **and more...**
 
 ## License
