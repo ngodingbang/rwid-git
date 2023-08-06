@@ -1,14 +1,8 @@
-import { parseNumber } from "../helper.js";
+import { NumberSequence } from "./NumberSequence.js";
 
-export class FizzBuzz {
-  /** @type {number} */
-  sequence;
-
-  /**
-   * @param {number} sequence
-   */
+export class FizzBuzz extends NumberSequence {
   constructor(sequence) {
-    this.sequence = parseNumber(sequence);
+    super(sequence);
   }
 
   generate() {
@@ -34,7 +28,7 @@ document.getElementById("form").addEventListener("submit", function (event) {
   try {
     const sequence = event.target["sequence"].value;
 
-    const result = new FizzBuzz(sequence);
+    const result = new FizzBuzz(sequence).generate();
 
     document.getElementById("result").textContent = JSON.stringify(result);
   } catch (error) {
