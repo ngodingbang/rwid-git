@@ -6,8 +6,10 @@ import { parseString } from "../helper.js";
  * @param {string} value
  */
 function isPalindromeUsingReverse(value) {
-  // write your code here
-  return true;
+  const word = value.split("");
+  const reverseWord = word.reverse().join("");
+
+  return value === reverseWord;
 }
 
 /**
@@ -16,7 +18,14 @@ function isPalindromeUsingReverse(value) {
  * @param {string} value
  */
 function isPalindromeUsingLoop(value) {
-  // write your code here
+  const word = value.split("");
+  let length = word.length;
+
+  for (let i = 0; i < length / 2; i++) {
+    if (word[i] !== word[length - 1 - i]) {
+      return false;
+    }
+  }
   return true;
 }
 
@@ -27,8 +36,17 @@ function isPalindromeUsingLoop(value) {
  * @param {number} index
  */
 function isPalindromeUsingRecursive(value, index = 0) {
-  // write your code here
-  return true;
+  const word = value.split("");
+
+  if (index < word.length / 2) {
+    if (word[index] !== word[word.length - index - 1]) {
+      return false;
+    } else {
+      return isPalindromeUsingRecursive(value, index + 1);
+    }
+  } else {
+    return true;
+  }
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
