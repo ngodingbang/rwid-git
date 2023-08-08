@@ -9,29 +9,31 @@
       href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="../css/index.css" />
   </head>
 
   <body>
-    <h1>Fizz Buzz (Functional)</h1>
+    <main class="main-container">
+      <h1>Fizz Buzz (Functional)</h1>
 
-    <form id="form">
-      <label for="sequence">Input the length of the array</label>
-      <input
-        type="number"
-        name="sequence"
-        id="sequence"
-        min="1"
-        step="1"
-        required="required"
-      />
+      <form id="form">
+        <label for="sequence">Input the length of the array</label>
+        <input
+          type="number"
+          name="sequence"
+          id="sequence"
+          min="1"
+          step="1"
+          required="required"
+        />
 
-      <button type="submit">Generate Fizz Buzz</button>
-    </form>
+        <button type="submit">Generate Fizz Buzz</button>
+      </form>
+      <p><a href="/">Back to Homepage</a></p>
 
-    <p><strong>Result:</strong></p>
-    <p><span id="result">-</span></p>
-
-    <p><a href="/">Back to Homepage</a></p>
+      <p><strong>Result:</strong></p>
+      <div class="result-container-fizzbuzz" id="result"></div>
+    </main>
 
     <script type="module" src="../js/functional/fizz-buzz.js"></script>
   </body>

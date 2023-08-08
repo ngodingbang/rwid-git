@@ -11,7 +11,7 @@ function countFactorialUsingLoop(n) {
   let result = 1;
 
   for (let index = n; index > 0; index--) {
-    result = result * index;
+    result *= index;
   }
 
   return result;

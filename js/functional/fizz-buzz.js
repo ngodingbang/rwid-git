@@ -36,7 +36,27 @@ document.getElementById("form").addEventListener("submit", function (event) {
 
     const result = generateFizzBuzz(sequence);
 
-    document.getElementById("result").textContent = JSON.stringify(result);
+    let resultContainer = "";
+    let fizzBuzzNumber = 1;
+    for (let fizzBuzzItem of result) {
+      if (fizzBuzzNumber % 4 === 0 || fizzBuzzNumber % 7 === 0) {
+        resultContainer += `
+      <div class="result-item-fizzbuzz bg-red">${fizzBuzzNumber} ${fizzBuzzItem}</div>
+      `;
+      } else if (fizzBuzzNumber % 2 === 1) {
+        resultContainer += `
+      <div class="result-item-fizzbuzz bg-blue">${fizzBuzzNumber} ${fizzBuzzItem}</div>
+      `;
+      } else if (fizzBuzzNumber % 2 === 0) {
+        resultContainer += `
+      <div class="result-item-fizzbuzz bg-green">${fizzBuzzNumber} ${fizzBuzzItem}</div>
+      `;
+      }
+
+      fizzBuzzNumber++;
+    }
+
+    document.getElementById("result").innerHTML = resultContainer;
   } catch (error) {
     alert(error.message);
     console.error(error);

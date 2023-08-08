@@ -9,53 +9,61 @@
       href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="../css/index.css" />
   </head>
 
   <body>
-    <h1>Palindrome (Functional)</h1>
+    <main class="main-container">
+      <h1>Palindrome (Functional)</h1>
 
-    <form id="form">
-      <label for="word">Input the word</label>
-      <input type="text" name="word" id="word" required="required" />
+      <form id="form">
+        <div class="input-word-container">
+          <label for="word">Input the word</label>
+          <input type="text" name="word" id="word" required="required" />
+        </div>
 
-      <br />
+        <div class="method-container">
+          <label>Choose the method</label>
+          <label for="method-reverse" class="method-item">
+            <input
+              type="radio"
+              name="method"
+              id="method-reverse"
+              value="reverse"
+              required="required"
+            />
+            <span>Reverse</span>
+          </label>
+          <label for="method-loop" class="method-item">
+            <input
+              type="radio"
+              name="method"
+              id="method-loop"
+              value="loop"
+              required="required"
+            />
+            <span>Loop</span>
+          </label>
+          <label for="method-recursive" class="method-item">
+            <input
+              type="radio"
+              name="method"
+              id="method-recursive"
+              value="recursive"
+              required="required"
+            />
+            <span>Recursive</span>
+          </label>
+        </div>
+        <button type="submit">Check Palindrome</button>
+      </form>
 
-      <label>Choose the method</label>
-      <input
-        type="radio"
-        name="method"
-        id="method-reverse"
-        value="reverse"
-        required="required"
-      />
-      <label for="method-reverse">Reverse</label>
-      <input
-        type="radio"
-        name="method"
-        id="method-loop"
-        value="loop"
-        required="required"
-      />
-      <label for="method-loop">Loop</label>
-      <input
-        type="radio"
-        name="method"
-        id="method-recursive"
-        value="recursive"
-        required="required"
-      />
-      <label for="method-recursive">Recursive</label>
+      <p>
+        <strong>Result: <span id="result">-</span></strong>
+      </p>
 
-      <br />
-
-      <button type="submit">Check Palindrome</button>
-    </form>
-
-    <p>
-      <strong>Result: <span id="result">-</span></strong>
-    </p>
-
-    <p><a href="/">Back to Homepage</a></p>
+      <p><a href="/">Back to Homepage</a></p>
+    </main>
 
     <script type="module" src="../js/functional/palindrome.js"></script>
   </body>

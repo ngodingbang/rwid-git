@@ -12,6 +12,29 @@ export class Factorial {
   }
 
   // write your code here
+  /**
+   *
+   * @returns {number}
+   */
+  countFactorialLoop() {
+    let factorialResult = 1;
+    for (let i = this.n; i > 0; i--) {
+      factorialResult *= i;
+    }
+    return factorialResult;
+  }
+
+  /**
+   *
+   * @returns {number}
+   */
+  countFactorialRecursive() {
+    if (this.n == 0) {
+      return 1;
+    } else {
+      return this.n * this.countFactorialRecursive(this.n--);
+    }
+  }
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
@@ -22,8 +45,15 @@ document.getElementById("form").addEventListener("submit", function (event) {
     const method = event.target["method"].value;
 
     const result = new Factorial(n);
-
-    document.getElementById("result").textContent = result;
+    if (method == "loop") {
+      document.getElementById("result").textContent =
+        result.countFactorialLoop();
+    } else if (method == "recursive") {
+      document.getElementById("result").textContent =
+        result.countFactorialRecursive();
+    } else {
+      document.getElementById("result").textContent = result;
+    }
   } catch (error) {
     alert(error.message);
     console.error(error);

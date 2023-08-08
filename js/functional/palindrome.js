@@ -6,8 +6,8 @@ import { parseString } from "../helper.js";
  * @param {string} value
  */
 function isPalindromeUsingReverse(value) {
-  // write your code here
-  return true;
+  let reversedValue = value.split("").reverse().join("");
+  return value == reversedValue;
 }
 
 /**
@@ -16,8 +16,12 @@ function isPalindromeUsingReverse(value) {
  * @param {string} value
  */
 function isPalindromeUsingLoop(value) {
-  // write your code here
-  return true;
+  let reversedValue = "";
+  for (let i = value.length - 1; i >= 0; i--) {
+    reversedValue += value[i];
+  }
+
+  return value == reversedValue;
 }
 
 /**
@@ -26,9 +30,15 @@ function isPalindromeUsingLoop(value) {
  * @param {string} value
  * @param {number} index
  */
-function isPalindromeUsingRecursive(value, index = 0) {
-  // write your code here
-  return true;
+function isPalindromeUsingRecursive(value, reversedValue = "", index = 0) {
+  let lastIndexOfValue = value.length - 1;
+  if (reversedValue.length == value.length) {
+    return reversedValue == value;
+  } else {
+    reversedValue += value[lastIndexOfValue - index];
+    index++;
+    return isPalindromeUsingRecursive(value, reversedValue, index);
+  }
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {

@@ -9,51 +9,58 @@
       href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="../css/index.css" />
   </head>
 
   <body>
-    <h1>Fibonacci (Functional)</h1>
+    <main class="main-container">
+      <h1>Fibonacci (Functional)</h1>
 
-    <form id="form">
-      <label for="sequence">Input the length of the array</label>
-      <input
-        type="number"
-        name="sequence"
-        id="sequence"
-        min="1"
-        step="1"
-        required="required"
-      />
+      <form id="form">
+        <div class="input-number-container">
+          <label for="sequence">Input the length of the array</label>
+          <input
+            type="number"
+            name="sequence"
+            id="sequence"
+            min="1"
+            step="1"
+            required="required"
+          />
+        </div>
 
-      <br />
+        <label>Choose the method</label>
+        <div class="method-container">
+          <label for="method-loop" class="method-item">
+            <input
+              type="radio"
+              name="method"
+              id="method-loop"
+              value="loop"
+              required="required"
+            />
+            <span>Loop</span></label
+          >
+          <label for="method-recursive" class="method-item">
+            <input
+              type="radio"
+              name="method"
+              id="method-recursive"
+              value="recursive"
+              required="required"
+            />
+            <span>Recursive</span></label
+          >
+        </div>
 
-      <label>Choose the method</label>
-      <input
-        type="radio"
-        name="method"
-        id="method-loop"
-        value="loop"
-        required="required"
-      />
-      <label for="method-loop">Loop</label>
-      <input
-        type="radio"
-        name="method"
-        id="method-recursive"
-        value="recursive"
-        required="required"
-      />
-      <label for="method-recursive">Recursive</label>
+        <button type="submit">Generate Fibonacci</button>
+      </form>
 
-      <br />
+      <p><strong>Result:</strong></p>
+      <div class="result-container-fibonacci" id="result"></div>
 
-      <button type="submit">Generate Fibonacci</button>
-    </form>
-
-    <p><strong>Result:</strong></p>
-    <p><span id="result">-</span></p>
-
-    <p><a href="/">Back to Homepage</a></p>
+      <p><a href="/">Back to Homepage</a></p>
+    </main>
 
     <script type="module" src="../js/functional/fibonacci.js"></script>
   </body>

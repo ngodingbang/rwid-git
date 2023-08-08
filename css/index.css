@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+p.menu-item {
+  background-color: burlywood;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.menu-item a {
+  text-decoration: none;
+  color: brown;
+  font-weight: bold;
+}
+.menu-list {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.main-container {
+  box-shadow: 0 0 5px 0 silver;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  padding: 4rem 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-number-container,
+.input-word-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+input[type="number"],
+input[type="text"] {
+  border-radius: 5px;
+  border: none;
+  border: 1px solid slategray;
+  padding: 5px;
+}
+
+.method-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.method-item {
+  border: 1px solid slategray;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+}
+
+button {
+  border: none;
+  background-color: blueviolet;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.result-container-fizzbuzz {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.result-container-fibonacci {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.result-item-fizzbuzz {
+  border: 1px solid slategray;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  text-align: center;
+  width: 100px;
+}
+
+.result-item-fibonacci {
+  border: 1px solid slategray;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.bg-red {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.bg-blue {
+  background-color: rgba(0, 0, 255, 0.3);
+}
+
+.bg-green {
+  background-color: rgba(0, 255, 0, 0.3);
+}
