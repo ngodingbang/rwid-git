@@ -21,6 +21,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 ## Community Projects
 
 - [ianriizky/rwid-git](https://github.com/ianriizky/rwid-git)
+- [fadlirobbi/rwid-git](https://github.com/fadlirobbi/rwid-git)
 - **and more...**
 
 ## License
