@@ -19,8 +19,14 @@ function isPalindromeUsingReverse(value) {
  * @param {string} value
  */
 function isPalindromeUsingLoop(value) {
-  // write your code here
-  return true;
+  const lowerValue = value.toLowerCase();
+  const arrayValue = lowerValue.split("");
+  const arrayWords = [];
+  for (const arrayWord of arrayValue) {
+    arrayWords.unshift(arrayWord);
+  }
+  const reversedString = arrayWords.join("");
+  return reversedString === lowerValue;
 }
 
 /**
