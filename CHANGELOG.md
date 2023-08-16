@@ -6,7 +6,8 @@ All notable changes to `RWID Git` will be documented in this file.
 
 ## [0.2.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.1.0) - 2023-??-??
 
-- chore: add "https://github.com/ianriizky/rwid-git" into community projects section on README.md by [@ianriizky](https://github.com/ianriizky) in [#1](https://github.com/ngodingbang/rwid-git/pull/1).
+- chore: add <https://github.com/ianriizky/rwid-git> into community projects section on README.md by [@ianriizky](https://github.com/ianriizky) in [#1](https://github.com/ngodingbang/rwid-git/pull/1).
+- docs: add study case list on readme by [@ngodingbang](https://github.com/ngodingbang) in [#00a3715](https://github.com/ngodingbang/rwid-git/commit/00a3715036fc9883c0ceefd0b3b5ea6b2985da09).
 
 ## [0.1.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.1.0) - 2023-07-25
 
