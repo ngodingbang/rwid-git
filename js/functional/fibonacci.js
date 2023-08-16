@@ -29,7 +29,7 @@ function generateFibonacciUsingLoop(sequence) {
 }
 
 /**
- * Create an array filled by fibonacci sequence using recursive way.
+ * Create an array filled by fibonacci sequence using recursive way
  *
  * @param {number} sequence
  */
