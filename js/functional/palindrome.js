@@ -34,8 +34,20 @@ function isPalindromeUsingLoop(value) {
  * @param {number} index
  */
 function isPalindromeUsingRecursive(value, index = 0) {
-  // write your code here
-  return true;
+  const lowerValue = value.toLowerCase();
+
+  // if the length of current string is less than equal to 1, auto palindrome
+  if (lowerValue.length <= 1) {
+    return true;
+  }
+
+  // if the beginning letter is different from last letter, auto not a palindrome
+  if (lowerValue[0] !== lowerValue[lowerValue.length - 1]) {
+    return false;
+  }
+
+  // if the beginning letter is same as last letter, check the second early and the second last, recursive
+  return isPalindromeUsingRecursive(value.substring(1, value.length - 1));
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
