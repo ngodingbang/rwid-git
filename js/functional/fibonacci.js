@@ -6,8 +6,26 @@ import { parseNumber } from "../helper.js";
  * @param {number} sequence
  */
 function generateFibonacciUsingLoop(sequence) {
-  // write your code here
-  return [];
+  const fibonacciArray = [];
+
+  if (sequence <= 0) {
+    return fibonacciArray;
+  }
+  if (sequence >= 1) {
+    fibonacciArray.push(0);
+  }
+  if (sequence >= 2) {
+    fibonacciArray.push(1);
+  }
+
+  for (let seq = 0; seq < sequence - 2; seq++) {
+    let currentNumber =
+      fibonacciArray[fibonacciArray.length - 2] +
+      fibonacciArray[fibonacciArray.length - 1];
+    fibonacciArray.push(currentNumber);
+  }
+
+  return fibonacciArray;
 }
 
 /**
@@ -16,8 +34,20 @@ function generateFibonacciUsingLoop(sequence) {
  * @param {number} sequence
  */
 function generateFibonacciUsingRecursive(sequence) {
-  // write your code here
-  return [];
+  if (sequence <= 0) {
+    return [];
+  } else if (sequence <= 1) {
+    return [0];
+  } else if (sequence <= 2) {
+    return [0, 1];
+  } else {
+    const currentArray = generateFibonacciUsingRecursive(sequence - 1);
+    const nextNumber =
+      currentArray[currentArray.length - 1] +
+      currentArray[currentArray.length - 2];
+    currentArray.push(nextNumber);
+    return currentArray;
+  }
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
