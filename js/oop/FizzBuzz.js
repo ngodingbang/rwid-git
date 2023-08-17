@@ -1,14 +1,8 @@
-import { parseNumber } from "../helper.js";
+import { NumberSequence } from "./NumberSequence.js";
 
-export class FizzBuzz {
-  /** @type {number} */
-  sequence;
-
-  /**
-   * @param {number} sequence
-   */
+export class FizzBuzz extends NumberSequence {
   constructor(sequence) {
-    this.sequence = parseNumber(sequence);
+    super(sequence);
   }
 
   generate() {
