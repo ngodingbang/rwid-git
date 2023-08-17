@@ -34,7 +34,7 @@ document.getElementById("form").addEventListener("submit", function (event) {
   try {
     const sequence = event.target["sequence"].value;
 
-    const result = new FizzBuzz(sequence);
+    const result = new FizzBuzz(sequence).generate();
 
     document.getElementById("result").textContent = JSON.stringify(result);
   } catch (error) {
