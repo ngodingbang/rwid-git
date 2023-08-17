@@ -6,9 +6,11 @@ import { parseString } from "../helper.js";
  * @param {string} value
  */
 function isPalindromeUsingReverse(value) {
-  const lowerValue = value.toLowerCase();
-  const reversedString = lowerValue.split("").reverse().join("");
-  return lowerValue === reversedString;
+  const lower = value.toLowerCase();
+
+  const reversedString = lower.split("").reverse().join("");
+
+  return lower === reversedString;
 }
 
 /**
@@ -17,14 +19,19 @@ function isPalindromeUsingReverse(value) {
  * @param {string} value
  */
 function isPalindromeUsingLoop(value) {
-  const lowerValue = value.toLowerCase();
-  const arrayValue = lowerValue.split("");
-  const arrayWords = [];
-  for (const arrayWord of arrayValue) {
-    arrayWords.unshift(arrayWord);
+  const lower = value.toLowerCase();
+
+  const array = lower.split("");
+
+  const newArray = [];
+
+  for (const word of array) {
+    newArray.unshift(word);
   }
-  const reversedString = arrayWords.join("");
-  return reversedString === lowerValue;
+
+  const reversed = newArray.join("");
+
+  return reversed === lower;
 }
 
 /**
@@ -36,17 +43,14 @@ function isPalindromeUsingLoop(value) {
 function isPalindromeUsingRecursive(value, index = 0) {
   const lowerValue = value.toLowerCase();
 
-  // if the length of current string is less than equal to 1, auto palindrome
   if (lowerValue.length <= 1) {
     return true;
   }
 
-  // if the beginning letter is different from last letter, auto not a palindrome
   if (lowerValue[0] !== lowerValue[lowerValue.length - 1]) {
     return false;
   }
 
-  // if the beginning letter is same as last letter, check the second early and the second last, recursive
   return isPalindromeUsingRecursive(value.substring(1, value.length - 1));
 }
 
