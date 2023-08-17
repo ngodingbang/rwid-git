@@ -5,7 +5,7 @@ Learn to code with version control system using Git. There are several study cas
 - [x] [Factorial - Functional](functional/factorial.html)
 - [ ] [Factorial - OOP](oop/factorial.html)
 - [x] [Fizz Buzz - Functional](functional/fizz-buzz.html)
-- [ ] [Fizz Buzz - OOP](oop/fizz-buzz.html)
+- [x] [Fizz Buzz - OOP](oop/fizz-buzz.html)
 - [ ] [Palindrome - Functional](functional/palindrome.html)
 - [ ] [Palindrome - OOP](oop/palindrome.html)
 - [ ] [Fibonacci - Functional](functional/fibonacci.html)
