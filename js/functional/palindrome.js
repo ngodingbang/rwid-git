@@ -8,9 +8,9 @@ import { parseString } from "../helper.js";
 function isPalindromeUsingReverse(value) {
   const lower = value.toLowerCase();
 
-  const reversedString = lower.split("").reverse().join("");
+  const reversed = lower.split("").reverse().join("");
 
-  return lower === reversedString;
+  return lower === reversed;
 }
 
 /**

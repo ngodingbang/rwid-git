@@ -30,16 +30,20 @@ function generateFibonacciUsingLoop(sequence) {
 }
 
 /**
- * Create an array filled by fibonacci sequence using recursive way
+ * Create an array filled by fibonacci sequence using recursive way.
  *
  * @param {number} sequence
  */
 function generateFibonacciUsingRecursive(sequence) {
   if (sequence <= 0) {
     return [];
-  } else if (sequence <= 1) {
+  }
+
+  if (sequence <= 1) {
     return [0];
-  } else if (sequence <= 2) {
+  }
+
+  if (sequence <= 2) {
     return [0, 1];
   }
 
