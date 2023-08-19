@@ -32,7 +32,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 ## Community Projects
 
 - [ianriizky/rwid-git](https://github.com/ianriizky/rwid-git)
-- **and more...**
+- [GaraCoding/rwid-git-fjrA](https://github.com/GaraCoding/rwid-git-fjrA)
 
 ## License
 
