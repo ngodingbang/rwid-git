@@ -4,7 +4,7 @@ All notable changes to `RWID Git` will be documented in this file.
 
 ## [Unreleased](https://github.com/ngodingbang/rwid-git/compare/0.2.0...develop)
 
-## [0.2.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.1.0) - 2023-??-??
+## [0.2.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.2.0) - 2023-08-20
 
 - chore: add <https://github.com/ianriizky/rwid-git> into community projects section on README.md by [@ianriizky](https://github.com/ianriizky) in [#1](https://github.com/ngodingbang/rwid-git/pull/1).
 - feat: finish fizz buzz js using oop by [@ngodingbang](https://github.com/ngodingbang) in [#d28ea39](https://github.com/ngodingbang/rwid-git/commit/d28ea39efc3534b2abcf3f977fe63f8869346e84).
