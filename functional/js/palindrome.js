@@ -1,5 +1,3 @@
-import { parseString } from "../helper.js";
-
 /**
  * Determine whether the given value is a palindrome or not using reverse way.
  *

@@ -1,14 +1,14 @@
-import { parseString } from "../helper.js";
+import { parseNumber } from "../../js/helper.js";
 
-export class Palindrome {
-  /** @type {string} */
-  value;
+export class Factorial {
+  /** @type {number} */
+  n;
 
   /**
-   * @param {string} value
+   * @param {number} n
    */
-  constructor(value) {
-    this.value = parseString(value);
+  constructor(n) {
+    this.n = parseNumber(n);
   }
 
   // write your code here
@@ -18,10 +18,10 @@ document.getElementById("form").addEventListener("submit", function (event) {
   event.preventDefault();
 
   try {
-    const word = event.target["word"].value;
+    const n = event.target["n"].value;
     const method = event.target["method"].value;
 
-    const result = new Palindrome(word);
+    const result = new Factorial(n);
 
     document.getElementById("result").textContent = result;
   } catch (error) {
