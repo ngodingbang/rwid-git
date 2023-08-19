@@ -33,7 +33,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 ## Community Projects
 
 - [ianriizky/rwid-git](https://github.com/ianriizky/rwid-git)
-- **and more...**
+- [fjranggara/rwid-git-fjrA](https://github.com/fjranggara/rwid-git-fjrA)
 
 ## License
 
