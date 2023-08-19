@@ -2,7 +2,12 @@
 
 All notable changes to `RWID Git` will be documented in this file.
 
-## [Unreleased](https://github.com/ngodingbang/rwid-git/compare/0.2.0...develop)
+## [Unreleased](https://github.com/ngodingbang/rwid-git/compare/0.3.0...develop)
+
+## [0.3.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.3.0) - 2023-??-??
+
+- refactor: move html and js file into its own folder by [@ngodingbang](https://github.com/ngodingbang) in [#89874f3](https://github.com/ngodingbang/rwid-git/commit/89874f31acad765ef2e62d3b7ac296a150c844f3).
+- feat: add back button on javascript modules html page by [@ngodingbang](https://github.com/ngodingbang) in [#b9a8a9f](https://github.com/ngodingbang/rwid-git/commit/b9a8a9ffc091ff4aa3b7c8df29f71526cd1b1afe).
 
 ## [0.2.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.2.0) - 2023-08-20
 
