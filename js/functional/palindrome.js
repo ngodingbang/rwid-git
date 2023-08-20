@@ -6,29 +6,51 @@ import { parseString } from "../helper.js";
  * @param {string} value
  */
 function isPalindromeUsingReverse(value) {
-  // write your code here
-  return true;
+  const cleanValue = value.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+
+  const reversedValue = cleanValue.split("").reverse().join("");
+
+  return cleanValue === reversedValue
 }
 
 /**
  * Determine whether the given value is a palindrome or not using loop way.
- *
- * @param {string} value
- */
+*
+* @param {string} value
+*/
 function isPalindromeUsingLoop(value) {
-  // write your code here
+  const cleanValue = value.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+
+  const length = cleanValue.length;
+
+  for (let i = 0; i < Math.floor(length / 2); i++) {
+    if (cleanValue[i] !== cleanValue[length - 1 - i]) {
+      return false;
+    }
+  }
   return true;
 }
 
 /**
  * Determine whether the given value is a palindrome or not using recursive way.
- *
- * @param {string} value
- * @param {number} index
- */
+*
+* @param {string} value
+* @param {number} index
+*/
 function isPalindromeUsingRecursive(value, index = 0) {
-  // write your code here
-  return true;
+  const cleanValue = value.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+  const length = cleanValue.length;
+
+  if (index >= Math.floor(length / 2)) {
+    return true;
+  }
+
+  if (cleanValue[index] !== cleanValue[length - 1 - index]) {
+    return false;
+  }
+
+  return isPalindromeUsingRecursive(value, index + 1)
+
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
