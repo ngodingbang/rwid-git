@@ -6,7 +6,7 @@ function generateMember5() {
     5,
     "Tangerang, Banten",
     "6",
-    "https://www.github.com/oombagus/"
+    "https://www.github.com/oombagus",
   );
 
   member.generateTrElement();
