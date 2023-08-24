@@ -14,7 +14,7 @@ Learn to code with version control system using Git. There are several study cas
 
 You can add your own study case into the list above by contributing to this repository. See [Contributing](#contributing) section for more information.
 
-## Instalation
+## Installation
 
 You can install the project by clone it via GitHub :
 
