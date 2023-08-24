@@ -9,6 +9,9 @@ All notable changes to `RWID Git` will be documented in this file.
 - refactor: move html and js file into its own folder by [@ngodingbang](https://github.com/ngodingbang) in [#89874f3](https://github.com/ngodingbang/rwid-git/commit/89874f31acad765ef2e62d3b7ac296a150c844f3).
 - feat: add back button on javascript modules html page by [@ngodingbang](https://github.com/ngodingbang) in [#b9a8a9f](https://github.com/ngodingbang/rwid-git/commit/b9a8a9ffc091ff4aa3b7c8df29f71526cd1b1afe).
 - chore: add <https://github.com/sdesakt/rwid-challenge> into community projects section on README.md by [@sdesakt](https://github.com/sdesakt) in [#9](https://github.com/ngodingbang/rwid-git/pull/9).
+- docs: fix typo on readme [@ngodingbang](https://github.com/ngodingbang) in [#542217a](https://github.com/ngodingbang/rwid-git/commit/542217aa1659213f2c9d5b5c980f524d303b203e).
+- refactor: rename folder name of modules html page [@ngodingbang](https://github.com/ngodingbang) in [#6394d66](https://github.com/ngodingbang/rwid-git/commit/6394d668fb73b85193e654b983bf9aff58f3e8cf).
+- chore: set a href on generateTrElement() [@ngodingbang](https://github.com/ngodingbang) in [#457e33a](https://github.com/ngodingbang/rwid-git/commit/457e33ac67eeb8d24f9ea6c582a9aaf14fda9e38).
 
 ## [0.2.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.2.0) - 2023-08-20
 
