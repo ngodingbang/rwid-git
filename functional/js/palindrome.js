@@ -1,3 +1,4 @@
+import { parseString } from "../../js/helper.js";
 /**
  * Determine whether the given value is a palindrome or not using reverse way.
  *
@@ -5,7 +6,9 @@
  */
 function isPalindromeUsingReverse(value) {
   // write your code here
-  return true;
+  value = value.replace(/[^a-zA-Z]/g, "").toLowerCase();
+  let reverseValuestr = value.split("").reverse().join("");
+  return value == reverseValuestr;
 }
 
 /**
@@ -15,6 +18,13 @@ function isPalindromeUsingReverse(value) {
  */
 function isPalindromeUsingLoop(value) {
   // write your code here
+  value = value.replace(/[^a-zA-Z]/g, "").toLowerCase();
+  let valueLen = value.length;
+
+  for (let index = 1; index < valueLen / 2; index++) {
+    if (value[index] == value[valueLen - index - 1]) {
+    }
+  }
   return true;
 }
 
@@ -26,7 +36,15 @@ function isPalindromeUsingLoop(value) {
  */
 function isPalindromeUsingRecursive(value, index = 0) {
   // write your code here
-  return true;
+
+  value = value.replace(/[^a-zA-Z]/g, "").toLowerCase();
+  if (index >= Math.floor(value.length / 2)) {
+    return true;
+  }
+  if (value[index] !== value[value.length - 1 - index]) {
+    return false;
+  }
+  return isPalindromeUsingRecursive(value, index + 1);
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {

@@ -9,3 +9,4 @@ export { generateMember8 as m8 } from "./generateMember8.js";
 export { generateMember9 as m9 } from "./generateMember9.js";
 export { generateMember10 as m10 } from "./generateMember10.js";
 export { generateMember11 as m11 } from "./generateMember11.js";
+export { generateMember12 as m12 } from "./generateMember12.js";
