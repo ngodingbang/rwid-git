@@ -10,5 +10,7 @@ export function generateTrElement(data = {}, tbodyTarget = "member-tbody") {
   row.insertCell(1).textContent = data?.name || "";
   row.insertCell(2).textContent = data?.address || "";
   row.insertCell(3).textContent = data?.sim_batch || "";
-  row.insertCell(4).textContent = data?.github_url || "";
+  row.insertCell(4).innerHTML = data?.github_url
+    ? `<a href=${data?.github_url}>${data?.github_url}</a>`
+    : "";
 }
