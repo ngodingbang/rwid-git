@@ -6,6 +6,8 @@ import { parseNumber } from "../helper.js";
  * @param {number} sequence
  */
 function generateFibonacciUsingLoop(sequence) {
+  sequence = parseNumber(sequence);
+
   if (sequence <= 0) {
     return [];
   } else if (sequence === 1) {
@@ -23,10 +25,12 @@ function generateFibonacciUsingLoop(sequence) {
 
 /**
  * Create an array filled by fibonacci sequence using recursive way.
- *
- * @param {number} sequence
- */
+*
+* @param {number} sequence
+*/
 function generateFibonacciUsingRecursive(sequence) {
+  sequence = parseNumber(sequence);
+
   if (sequence <= 0) {
     return [];
   } else if (sequence === 1) {
