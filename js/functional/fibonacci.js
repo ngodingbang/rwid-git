@@ -6,7 +6,7 @@ import { parseNumber } from "../helper.js";
  * @param {number} sequence
  */
 function generateFibonacciUsingLoop(sequence) {
-  sequence = parseNumber(sequence);
+  sequence = parseNumber(sequence); // parse the input as a number
 
   if (sequence <= 0) {
     return [];
