@@ -11,7 +11,21 @@ export class FizzBuzz {
     this.sequence = parseNumber(sequence);
   }
 
-  // write your code here
+  generate() {
+    let result = [];
+
+    for (let i = 1; i <= this.sequence; i++) {
+      if (i % 4 === 0 || i % 7 === 0) {
+        result.push("fizz buzz");
+      } else if (i % 2 === 1) {
+        result.push("fizz");
+      } else if (i % 2 === 0) {
+        result.push("buzz");
+      }
+    }
+
+    return result;
+  }
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
@@ -20,7 +34,8 @@ document.getElementById("form").addEventListener("submit", function (event) {
   try {
     const sequence = event.target["sequence"].value;
 
-    const result = new FizzBuzz(sequence);
+    const generator = new FizzBuzz(sequence);
+    const result = generator.generate();
 
     document.getElementById("result").textContent = JSON.stringify(result);
   } catch (error) {
