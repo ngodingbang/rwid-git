@@ -11,7 +11,25 @@ export class Factorial {
     this.n = parseNumber(n);
   }
 
-  // write your code here
+  /**
+   * @return {number}
+   */
+  countFactorialUsingLoop() {
+    let result = 1;
+
+    for (let i = this.n; i > 0; i--) {
+      result *= i;
+    }
+    return result;
+  }
+
+  countFactorialUsingRecursive() {
+    if (this.n < 2) {
+      return 1;
+    }
+
+    return this.n * new Factorial(this.n - 1).countFactorialUsingRecursive();
+  }
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
@@ -21,7 +39,16 @@ document.getElementById("form").addEventListener("submit", function (event) {
     const n = event.target["n"].value;
     const method = event.target["method"].value;
 
-    const result = new Factorial(n);
+    const factorialInstance = new Factorial(n);
+    let result;
+
+    if (method === "loop") {
+      result = factorialInstance.countFactorialUsingLoop();
+    } else if (method === "recursive") {
+      result = factorialInstance.countFactorialUsingRecursive();
+    } else {
+      throw new Error("Method must be loop or recursive.");
+    }
 
     document.getElementById("result").textContent = result;
   } catch (error) {
