@@ -7,7 +7,7 @@ import { parseString } from "../helper.js";
  */
 
 function isPalindromeUsingReverse(value) {
-  const cleanValue = parseString(value);
+  const cleanValue = parseString(value); // Add parseString
 
   const reversedValue = cleanValue.split("").reverse().join("");
 
