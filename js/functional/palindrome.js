@@ -5,8 +5,9 @@ import { parseString } from "../helper.js";
  *
  * @param {string} value
  */
+
 function isPalindromeUsingReverse(value) {
-  const cleanValue = value.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  const cleanValue = parseString(value);
 
   const reversedValue = cleanValue.split("").reverse().join("");
 
@@ -18,8 +19,9 @@ function isPalindromeUsingReverse(value) {
 *
 * @param {string} value
 */
+
 function isPalindromeUsingLoop(value) {
-  const cleanValue = value.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+  const cleanValue = parseString(value);
 
   const length = cleanValue.length;
 
@@ -37,8 +39,9 @@ function isPalindromeUsingLoop(value) {
 * @param {string} value
 * @param {number} index
 */
+
 function isPalindromeUsingRecursive(value, index = 0) {
-  const cleanValue = value.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+  const cleanValue = parseString(value);
   const length = cleanValue.length;
 
   if (index >= Math.floor(length / 2)) {
