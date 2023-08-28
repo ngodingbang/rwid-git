@@ -4,9 +4,13 @@ import { parseString } from "../helper.js";
  * Determine whether the given value is a palindrome or not using reverse way.
  *
  * @param {string} value
+ * @returns {string}
  */
 function isPalindromeUsingReverse(value) {
+  value = parseString(value);
+
   let reversedValue = value.split("").reverse().join("");
+
   return value == reversedValue;
 }
 
@@ -14,11 +18,15 @@ function isPalindromeUsingReverse(value) {
  * Determine whether the given value is a palindrome or not using loop way.
  *
  * @param {string} value
+ * @returns {string}
  */
 function isPalindromeUsingLoop(value) {
+  value = parseString(value);
+
   let reversedValue = "";
-  for (let i = value.length - 1; i >= 0; i--) {
-    reversedValue += value[i];
+
+  for (let index = value.length - 1; index >= 0; index--) {
+    reversedValue += value[index];
   }
 
   return value == reversedValue;
@@ -31,14 +39,47 @@ function isPalindromeUsingLoop(value) {
  * @param {number} index
  */
 function isPalindromeUsingRecursive(value, reversedValue = "", index = 0) {
+  value = parseString(value);
+
   let lastIndexOfValue = value.length - 1;
+
   if (reversedValue.length == value.length) {
     return reversedValue == value;
-  } else {
-    reversedValue += value[lastIndexOfValue - index];
-    index++;
-    return isPalindromeUsingRecursive(value, reversedValue, index);
   }
+
+  reversedValue += value[lastIndexOfValue - index];
+  index++;
+
+  return isPalindromeUsingRecursive(value, reversedValue, index);
+}
+
+/**
+ * Generate string that describe is the word palindrome or not
+ *
+ * @param {string} word
+ * @param {string} method
+ * @returns {string}
+ */
+function generatePalindromeTextResult(word, method) {
+  let isPalindrome;
+
+  switch (method) {
+    case "reverse":
+      isPalindrome = isPalindromeUsingReverse(word);
+      break;
+    case "loop":
+      isPalindrome = isPalindromeUsingLoop(word);
+      break;
+    case "recursive":
+      isPalindrome = isPalindromeUsingRecursive(word);
+      break;
+    default:
+      throw new Error("Method must be reverse, loop or recursive.");
+  }
+
+  return isPalindrome
+    ? "Yes, this word is a palindrome."
+    : "No, this word is not a palindrome.";
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
@@ -48,23 +89,8 @@ document.getElementById("form").addEventListener("submit", function (event) {
     const word = event.target["word"].value;
     const method = event.target["method"].value;
 
-    let isPalindrome;
-
-    if (method === "reverse") {
-      isPalindrome = isPalindromeUsingReverse(word);
-    } else if (method === "loop") {
-      isPalindrome = isPalindromeUsingLoop(word);
-    } else if (method === "recursive") {
-      isPalindrome = isPalindromeUsingRecursive(word);
-    } else {
-      throw new Error("Method must be reverse, loop, or recursive.");
-    }
-
-    const result = isPalindrome
-      ? "Yes, this word is a palindrome."
-      : "No, this word is not a palindrome.";
-
-    document.getElementById("result").textContent = result;
+    document.getElementById("result").textContent =
+      generatePalindromeTextResult(word, method);
   } catch (error) {
     alert(error.message);
     console.error(error);

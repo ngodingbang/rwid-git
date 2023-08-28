@@ -32,6 +32,27 @@ function countFactorialUsingRecursive(n) {
   return n * countFactorialUsingRecursive(n - 1);
 }
 
+/**
+ * Get factorial number using the way that specified in selected method
+ *
+ * @param {number} n
+ * @param {string} method
+ * @returns {string}
+ */
+function getFactorialByMethod(n, method) {
+  let result = "";
+
+  if (method == "loop") {
+    result = countFactorialUsingLoop(n);
+  } else if (method == "recursive") {
+    result = countFactorialUsingRecursive(n);
+  } else {
+    throw new Error("Method must be loop or recursive.");
+  }
+
+  return result;
+}
+
 document.getElementById("form").addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -39,15 +60,7 @@ document.getElementById("form").addEventListener("submit", function (event) {
     const n = event.target["n"].value;
     const method = event.target["method"].value;
 
-    let result;
-
-    if (method === "loop") {
-      result = countFactorialUsingLoop(n);
-    } else if (method === "recursive") {
-      result = countFactorialUsingRecursive(n);
-    } else {
-      throw new Error("Method must be loop or recursive.");
-    }
+    let result = getFactorialByMethod(n, method);
 
     document.getElementById("result").textContent = result;
   } catch (error) {

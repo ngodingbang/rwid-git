@@ -11,6 +11,16 @@ export class FizzBuzz {
     this.sequence = parseNumber(sequence);
   }
 
+  /**
+   * Create an array filled by "fizz", "buzz", or "fizz buzz" based on
+   * this requirement below (highest priority from above).
+   *
+   * Muliples of 4 or 7: "fizz buzz"
+   * Odd sequence: "fizz"
+   * Even sequence: "buzz"
+   *
+   * @returns {Array}
+   */
   generate() {
     let result = [];
 
@@ -26,6 +36,40 @@ export class FizzBuzz {
 
     return result;
   }
+
+  /**
+   * Create string of html code that contain the result of fizz buzz item
+   *
+   * @param {Array} array
+   * @returns {string}
+   */
+  generateHTML(array) {
+    let result = "";
+
+    for (let index = 0; index < array.length; index++) {
+      switch (array[index]) {
+        case "fizz buzz":
+          result += `<div class="result-item-fizzbuzz bg-red">${index + 1} ${
+            array[index]
+          }</div>`;
+          break;
+        case "fizz":
+          result += `<div class="result-item-fizzbuzz bg-blue">${index + 1} ${
+            array[index]
+          }</div>`;
+          break;
+        case "buzz":
+          result += `<div class="result-item-fizzbuzz bg-green">${index + 1} ${
+            array[index]
+          }</div>`;
+          break;
+        default:
+          break;
+      }
+    }
+
+    return result;
+  }
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
@@ -34,31 +78,10 @@ document.getElementById("form").addEventListener("submit", function (event) {
   try {
     const sequence = event.target["sequence"].value;
 
-    const result = new FizzBuzz(sequence);
+    const fizzbuzz = new FizzBuzz(sequence);
+    let result = fizzbuzz.generate();
 
-    let outputFizzBuzzArray = result.generate();
-
-    let resultContainer = "";
-    let fizzBuzzNumber = 1;
-    for (let fizzBuzzItem of outputFizzBuzzArray) {
-      if (fizzBuzzNumber % 4 === 0 || fizzBuzzNumber % 7 === 0) {
-        resultContainer += `
-      <div class="result-item-fizzbuzz bg-red">${fizzBuzzNumber} ${fizzBuzzItem}</div>
-      `;
-      } else if (fizzBuzzNumber % 2 === 1) {
-        resultContainer += `
-      <div class="result-item-fizzbuzz bg-blue">${fizzBuzzNumber} ${fizzBuzzItem}</div>
-      `;
-      } else if (fizzBuzzNumber % 2 === 0) {
-        resultContainer += `
-      <div class="result-item-fizzbuzz bg-green">${fizzBuzzNumber} ${fizzBuzzItem}</div>
-      `;
-      }
-
-      fizzBuzzNumber++;
-    }
-
-    document.getElementById("result").innerHTML = resultContainer;
+    document.getElementById("result").innerHTML = fizzbuzz.generateHTML(result);
   } catch (error) {
     alert(error.message);
     console.error(error);

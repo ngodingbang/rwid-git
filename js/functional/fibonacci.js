@@ -4,62 +4,96 @@ import { parseNumber } from "../helper.js";
  * Create an array filled by fibonacci sequence using loop way.
  *
  * @param {number} sequence
+ *
+ * @returns {Array}
  */
 function generateFibonacciUsingLoop(sequence) {
-  let fibonacciArray = [];
-  for (let i = 1; i <= sequence; i++) {
-    if (i == 1) {
-      fibonacciArray.push(0);
+  sequence = parseNumber(sequence);
+
+  let result = [];
+
+  for (let index = 0; index < sequence; index++) {
+    if ([0, 1].includes(index)) {
+      result.push(index);
       continue;
     }
 
-    if (i == 2) {
-      fibonacciArray.push(1);
-      continue;
-    }
-    let lastIndexOfFibonaciArray = fibonacciArray.length - 1;
-    let currentFibonacciNumber =
-      fibonacciArray[lastIndexOfFibonaciArray] +
-      fibonacciArray[lastIndexOfFibonaciArray - 1];
-    fibonacciArray.push(currentFibonacciNumber);
+    let lastIndex = result.length - 1;
+    let currentNumber = result[lastIndex] + result[lastIndex - 1];
+
+    result.push(currentNumber);
   }
-  return fibonacciArray;
+
+  return result;
 }
 
 /**
  * Create an array filled by fibonacci sequence using recursive way.
  *
  * @param {number} sequence
+ * @param {Array} result
+ * @param {number} index
+ *
+ * @returns {Array}
  */
-function generateFibonacciUsingRecursive(
-  sequence,
-  currentFibonacciArray = [],
-  index = 0,
-) {
-  if (index == 0 || index == 1) {
-    currentFibonacciArray.push(index);
-    index++;
-    return generateFibonacciUsingRecursive(
-      sequence,
-      currentFibonacciArray,
-      index,
-    );
-  }
+function generateFibonacciUsingRecursive(sequence, result = [], index = 0) {
+  sequence = parseNumber(sequence);
+
   if (sequence - index <= 0) {
-    return currentFibonacciArray;
-  } else {
-    let lastIndexOfFibonaciArray = currentFibonacciArray.length - 1;
-    let currentFibonacciNumber =
-      currentFibonacciArray[lastIndexOfFibonaciArray] +
-      currentFibonacciArray[lastIndexOfFibonaciArray - 1];
-    currentFibonacciArray.push(currentFibonacciNumber);
-    index++;
-    return generateFibonacciUsingRecursive(
-      sequence,
-      currentFibonacciArray,
-      index,
-    );
+    return result;
   }
+
+  if ([0, 1].includes(index)) {
+    result.push(index);
+    index++;
+
+    return generateFibonacciUsingRecursive(sequence, result, index);
+  }
+
+  let lastIndex = result.length - 1;
+  let currentNumber = result[lastIndex] + result[lastIndex - 1];
+
+  result.push(currentNumber);
+  index++;
+
+  return generateFibonacciUsingRecursive(sequence, result, index);
+}
+
+/**
+ * Get fibonacci array using specified method
+ *
+ * @param {number} sequence
+ * @param {string} method
+ * @returns {string}
+ */
+function getFibonacciByMethod(sequence, method) {
+  let result = [];
+
+  if (method === "loop") {
+    result = generateFibonacciUsingLoop(sequence, method);
+  } else if (method === "recursive") {
+    result = generateFibonacciUsingRecursive(sequence);
+  } else {
+    throw new Error("Method must be loop or recursive.");
+  }
+
+  return result;
+}
+
+/**
+ * Create string of html code that contain the result of fibbonacci item
+ *
+ * @param {Array} array
+ * @returns {string}
+ */
+function generateFibonacciResultHTML(array) {
+  let result = "";
+
+  for (let number of array) {
+    result += `<div class="result-item-fibonacci">${number}</div>`;
+  }
+
+  return result;
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
@@ -69,22 +103,10 @@ document.getElementById("form").addEventListener("submit", function (event) {
     const sequence = event.target["sequence"].value;
     const method = event.target["method"].value;
 
-    let result;
+    let result = getFibonacciByMethod(sequence, method);
 
-    if (method === "loop") {
-      result = generateFibonacciUsingLoop(sequence);
-    } else if (method === "recursive") {
-      result = generateFibonacciUsingRecursive(sequence);
-    } else {
-      throw new Error("Method must be loop or recursive.");
-    }
-
-    let resultContainer = "";
-    for (let fibonacciNumber of result) {
-      resultContainer += `<div class="result-item-fibonacci">${fibonacciNumber}</div>`;
-    }
-
-    document.getElementById("result").innerHTML = resultContainer;
+    document.getElementById("result").innerHTML =
+      generateFibonacciResultHTML(result);
   } catch (error) {
     alert(error.message);
     console.error(error);

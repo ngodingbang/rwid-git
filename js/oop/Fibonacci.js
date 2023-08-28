@@ -11,56 +11,96 @@ export class Fibonacci {
     this.sequence = parseNumber(sequence);
   }
 
-  // write your code here
   /**
    * Create an array filled by fibonacci sequence.
    *
    * @returns {Array}
    */
   generateFibonacciUsingLoop() {
-    let fibonacciArray = [];
-    for (let i = 1; i <= this.sequence; i++) {
-      if (i == 1) {
-        fibonacciArray.push(0);
+    let result = [];
+
+    for (let index = 1; index <= this.sequence; index++) {
+      if (index == 1) {
+        result.push(0);
         continue;
       }
 
-      if (i == 2) {
-        fibonacciArray.push(1);
+      if (index == 2) {
+        result.push(1);
         continue;
       }
-      let lastIndexOfFibonaciArray = fibonacciArray.length - 1;
-      let currentFibonacciNumber =
-        fibonacciArray[lastIndexOfFibonaciArray] +
-        fibonacciArray[lastIndexOfFibonaciArray - 1];
-      fibonacciArray.push(currentFibonacciNumber);
+
+      let lastIndex = result.length - 1;
+      let currentNumber = result[lastIndex] + result[lastIndex - 1];
+
+      result.push(currentNumber);
     }
-    return fibonacciArray;
+
+    return result;
   }
 
   /**
+   * Create an array filled by fibonacci sequence.
    *
-   * @param {number[]} currentFibonacciArray
+   * @param {number[]} result
    * @param {number} index
    * @returns {number[]}
    */
-  generateFibonacciUsingRecursive(currentFibonacciArray = [], index = 0) {
-    if (index == 0 || index == 1) {
-      currentFibonacciArray.push(index);
+  generateFibonacciUsingRecursive(result = [], index = 0) {
+    if ([0, 1].includes(index)) {
+      result.push(index);
       index++;
-      return this.generateFibonacciUsingRecursive(currentFibonacciArray, index);
+
+      return this.generateFibonacciUsingRecursive(result, index);
     }
+
     if (this.sequence - index <= 0) {
-      return currentFibonacciArray;
-    } else {
-      let lastIndexOfFibonaciArray = currentFibonacciArray.length - 1;
-      let currentFibonacciNumber =
-        currentFibonacciArray[lastIndexOfFibonaciArray] +
-        currentFibonacciArray[lastIndexOfFibonaciArray - 1];
-      currentFibonacciArray.push(currentFibonacciNumber);
-      index++;
-      return this.generateFibonacciUsingRecursive(currentFibonacciArray, index);
+      return result;
     }
+
+    let lastIndex = result.length - 1;
+    let currentNumber = result[lastIndex] + result[lastIndex - 1];
+
+    result.push(currentNumber);
+    index++;
+
+    return this.generateFibonacciUsingRecursive(result, index);
+  }
+
+  /**
+   * Get fibonacci array using specified method
+   *
+   * @param {string} method
+   * @returns {string}
+   */
+  getFibonacciByMethod(method) {
+    let result = [];
+
+    if (method === "loop") {
+      result = this.generateFibonacciUsingLoop();
+    } else if (method === "recursive") {
+      result = this.generateFibonacciUsingRecursive();
+    } else {
+      throw new Error("Method must be loop or recursive.");
+    }
+
+    return result;
+  }
+
+  /**
+   * Generate String of HTML elements that display fibonacci result
+   *
+   * @param {Array} array
+   * @returns {string}
+   */
+  generateFibonacciResultHTML(array) {
+    let result = "";
+
+    for (let number of array) {
+      result += `<div class="result-item-fibonacci">${number}</div>`;
+    }
+
+    return result;
   }
 }
 
@@ -70,22 +110,12 @@ document.getElementById("form").addEventListener("submit", function (event) {
   try {
     const sequence = event.target["sequence"].value;
     const method = event.target["method"].value;
-    let outputArray = [];
-    const result = new Fibonacci(sequence);
-    if (method === "loop") {
-      outputArray = result.generateFibonacciUsingLoop();
-    } else if (method === "recursive") {
-      outputArray = result.generateFibonacciUsingRecursive();
-    } else {
-      throw new Error("Method must be loop or recursive.");
-    }
 
-    let resultContainer = "";
-    for (let fibonacciNumber of outputArray) {
-      resultContainer += `<div class="result-item-fibonacci">${fibonacciNumber}</div>`;
-    }
+    const fibonacci = new Fibonacci(sequence);
+    const result = fibonacci.getFibonacciByMethod(method);
 
-    document.getElementById("result").innerHTML = resultContainer;
+    document.getElementById("result").innerHTML =
+      fibonacci.generateFibonacciResultHTML(result);
   } catch (error) {
     alert(error.message);
     console.error(error);

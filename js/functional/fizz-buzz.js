@@ -9,6 +9,7 @@ import { parseNumber } from "../helper.js";
  * Even sequence: "buzz"
  *
  * @param {number} sequence
+ * @returns {Array}
  */
 function generateFizzBuzz(sequence) {
   sequence = parseNumber(sequence);
@@ -28,6 +29,40 @@ function generateFizzBuzz(sequence) {
   return result;
 }
 
+/**
+ * Create string of html code that contain the result of fizz buzz item
+ *
+ * @param {Array} array
+ * @returns {string}
+ */
+function generateFizzBuzzResultHTML(array) {
+  let result = "";
+
+  for (let index = 0; index < array.length; index++) {
+    switch (array[index]) {
+      case "fizz buzz":
+        result += `<div class="result-item-fizzbuzz bg-red">${index + 1} ${
+          array[index]
+        }</div>`;
+        break;
+      case "fizz":
+        result += `<div class="result-item-fizzbuzz bg-blue">${index + 1} ${
+          array[index]
+        }</div>`;
+        break;
+      case "buzz":
+        result += `<div class="result-item-fizzbuzz bg-green">${index + 1} ${
+          array[index]
+        }</div>`;
+        break;
+      default:
+        break;
+    }
+  }
+
+  return result;
+}
+
 document.getElementById("form").addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -36,27 +71,8 @@ document.getElementById("form").addEventListener("submit", function (event) {
 
     const result = generateFizzBuzz(sequence);
 
-    let resultContainer = "";
-    let fizzBuzzNumber = 1;
-    for (let fizzBuzzItem of result) {
-      if (fizzBuzzNumber % 4 === 0 || fizzBuzzNumber % 7 === 0) {
-        resultContainer += `
-      <div class="result-item-fizzbuzz bg-red">${fizzBuzzNumber} ${fizzBuzzItem}</div>
-      `;
-      } else if (fizzBuzzNumber % 2 === 1) {
-        resultContainer += `
-      <div class="result-item-fizzbuzz bg-blue">${fizzBuzzNumber} ${fizzBuzzItem}</div>
-      `;
-      } else if (fizzBuzzNumber % 2 === 0) {
-        resultContainer += `
-      <div class="result-item-fizzbuzz bg-green">${fizzBuzzNumber} ${fizzBuzzItem}</div>
-      `;
-      }
-
-      fizzBuzzNumber++;
-    }
-
-    document.getElementById("result").innerHTML = resultContainer;
+    document.getElementById("result").innerHTML =
+      generateFizzBuzzResultHTML(result);
   } catch (error) {
     alert(error.message);
     console.error(error);
