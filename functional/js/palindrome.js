@@ -1,11 +1,20 @@
+import { parseString } from "../helper.js";
+
 /**
  * Determine whether the given value is a palindrome or not using reverse way.
  *
  * @param {string} value
  */
 function isPalindromeUsingReverse(value) {
-  // write your code here
-  return true;
+  value = parseString(value);
+
+  let newValue = "";
+
+  for (let index = value.length - 1; index >= 0; index--) {
+    newValue += value[index];
+  }
+
+  return value === newValue;
 }
 
 /**
@@ -14,7 +23,19 @@ function isPalindromeUsingReverse(value) {
  * @param {string} value
  */
 function isPalindromeUsingLoop(value) {
-  // write your code here
+  value = parseString(value);
+
+  for (let index = 0; index < Math.floor(value.length / 2); index++) {
+    const lastCharacterIndex = value.length - (index + 1);
+
+    const firstCharacter = value[index];
+    const lastCharacter = value[lastCharacterIndex];
+
+    if (firstCharacter !== lastCharacter) {
+      return false;
+    }
+  }
+
   return true;
 }
 
@@ -25,7 +46,21 @@ function isPalindromeUsingLoop(value) {
  * @param {number} index
  */
 function isPalindromeUsingRecursive(value, index = 0) {
-  // write your code here
+  value = parseString(value);
+
+  if (index < Math.floor(value.length / 2)) {
+    const lastCharacterIndex = value.length - (index + 1);
+
+    const firstCharacter = value[index];
+    const lastCharacter = value[lastCharacterIndex];
+
+    if (firstCharacter !== lastCharacter) {
+      return false;
+    }
+
+    return isPalindromeUsingRecursive(value, index + 1);
+  }
+
   return true;
 }
 
