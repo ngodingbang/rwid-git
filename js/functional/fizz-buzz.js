@@ -11,22 +11,20 @@ import { parseNumber } from "../helper.js";
  * @param {number} sequence
  */
 function generateFizzBuzz(sequence) {
-  sequence = parseNumber(sequence);
-
-  let result = [];
-
-  for (let index = 1; index <= sequence; index++) {
-    if (index % 4 === 0 || index % 7 === 0) {
-      result.push("fizz buzz");
-    } else if (index % 2 === 1) {
-      result.push("fizz");
-    } else if (index % 2 === 0) {
-      result.push("buzz");
+  let number = parseNumber(sequence)
+  let array = []
+  for(let i=1; i<=number; i++){
+    if(i%4 === 0 || i%7 === 0){
+      array.push("fizz buzz")
+    } else if(i%2 === 0){
+      array.push("buzz")
+    } else{
+      array.push("fizz")
     }
   }
-
-  return result;
+  return array
 }
+console.log(generateFizzBuzz(50))
 
 document.getElementById("form").addEventListener("submit", function (event) {
   event.preventDefault();
