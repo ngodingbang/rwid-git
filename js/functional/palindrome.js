@@ -25,11 +25,13 @@ function isPalindromeUsingLoop(value) {
 
   const length = cleanValue.length;
 
-  for (let i = 0; i < Math.floor(length / 2); i++) {
-    if (cleanValue[i] !== cleanValue[length - 1 - i]) {
+  for (let index = 0; index < Math.floor(length / 2); i++) {
+    if (cleanValue[index] !== cleanValue[length - 1 - index]) {
+
       return false;
     }
   }
+
   return true;
 }
 
@@ -41,7 +43,9 @@ function isPalindromeUsingLoop(value) {
 */
 
 function isPalindromeUsingRecursive(value, index = 0) {
+
   const cleanValue = parseString(value);
+
   const length = cleanValue.length;
 
   if (index >= Math.floor(length / 2)) {
@@ -49,6 +53,7 @@ function isPalindromeUsingRecursive(value, index = 0) {
   }
 
   if (cleanValue[index] !== cleanValue[length - 1 - index]) {
+
     return false;
   }
 
@@ -61,6 +66,7 @@ document.getElementById("form").addEventListener("submit", function (event) {
 
   try {
     const word = event.target["word"].value;
+
     const method = event.target["method"].value;
 
     let isPalindrome;

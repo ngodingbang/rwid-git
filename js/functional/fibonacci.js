@@ -15,8 +15,9 @@ function generateFibonacciUsingLoop(sequence) {
   }
 
   const fibonacciArray = [0, 1];
-  for (let i = 2; i < sequence; i++) {
-    const nextFibonacci = fibonacciArray[i - 1] + fibonacciArray[i - 2];
+
+  for (let index = 2; index < sequence; index++) {
+    const nextFibonacci = fibonacciArray[index - 1] + fibonacciArray[index - 2];
     fibonacciArray.push(nextFibonacci);
   }
 
@@ -40,7 +41,9 @@ function generateFibonacciUsingRecursive(sequence) {
   }
 
   const fibonacciArray = generateFibonacciUsingRecursive(sequence - 1);
+
   const nextFibonacci = fibonacciArray[fibonacciArray.length - 1] + fibonacciArray[fibonacciArray.length - 2];
+
   fibonacciArray.push(nextFibonacci);
 
   return fibonacciArray;
@@ -51,6 +54,7 @@ document.getElementById("form").addEventListener("submit", function (event) {
 
   try {
     const sequence = event.target["sequence"].value;
+
     const method = event.target["method"].value;
 
     let result;
