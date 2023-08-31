@@ -18,6 +18,7 @@ export class Palindrome {
 
   isPalindromeUsingReverse() {
     const cleanValue = this.value;
+
     const reversedValue = cleanValue.split("").reverse().join("");
 
     return cleanValue === reversedValue;
@@ -30,6 +31,7 @@ export class Palindrome {
 
   isPalindromeUsingLoop() {
     const cleanValue = this.value;
+
     const length = cleanValue.length;
 
     for (let index = 0; index < Math.floor(length / 2); index++) {
@@ -48,6 +50,7 @@ export class Palindrome {
 
   isPalindromeUsingRecursive(index = 0) {
     const cleanValue = this.value;
+
     const length = cleanValue.length;
 
     if (index >= Math.floor(length / 2)) {
@@ -67,9 +70,11 @@ document.getElementById("form").addEventListener("submit", function (event) {
 
   try {
     const word = event.target["word"].value;
+
     const method = event.target["method"].value;
 
     const palindromeInstance = new Palindrome(word);
+
     let result;
 
     if (method === "reverse") {

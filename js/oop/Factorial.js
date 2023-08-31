@@ -38,9 +38,11 @@ document.getElementById("form").addEventListener("submit", function (event) {
 
   try {
     const n = event.target["n"].value;
+
     const method = event.target["method"].value;
 
     const factorialInstance = new Factorial(n);
+
     let result;
 
     if (method === "loop") {

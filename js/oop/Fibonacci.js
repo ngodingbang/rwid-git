@@ -47,9 +47,11 @@ document.getElementById("form").addEventListener("submit", function (event) {
 
   try {
     const sequence = event.target["sequence"].value;
+
     const method = event.target["method"].value;
 
     const fibonacciInstance = new Fibonacci(sequence);
+
     let result;
 
     if (method === "loop") {
