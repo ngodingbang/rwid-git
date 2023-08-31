@@ -14,12 +14,12 @@ export class FizzBuzz {
   generate() {
     let result = [];
 
-    for (let i = 1; i <= this.sequence; i++) {
-      if (i % 4 === 0 || i % 7 === 0) {
+    for (let index = 1; index <= this.sequence; index++) {
+      if (index % 4 === 0 || index % 7 === 0) {
         result.push("fizz buzz");
-      } else if (i % 2 === 1) {
+      } else if (index % 2 === 1) {
         result.push("fizz");
-      } else if (i % 2 === 0) {
+      } else if (index % 2 === 0) {
         result.push("buzz");
       }
     }
@@ -35,6 +35,7 @@ document.getElementById("form").addEventListener("submit", function (event) {
     const sequence = event.target["sequence"].value;
 
     const generator = new FizzBuzz(sequence);
+
     const result = generator.generate();
 
     document.getElementById("result").textContent = JSON.stringify(result);

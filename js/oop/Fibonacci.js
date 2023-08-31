@@ -19,8 +19,8 @@ export class Fibonacci {
   generateLoop() {
     const sequence = [0, 1];
 
-    for (let i = 2; i < this.sequence; i++) {
-      const nextNumber = sequence[i - 1] + sequence[i - 2];
+    for (let index = 2; index < this.sequence; index++) {
+      const nextNumber = sequence[index - 1] + sequence[index - 2];
       sequence.push(nextNumber);
     }
 
@@ -56,8 +56,8 @@ document.getElementById("form").addEventListener("submit", function (event) {
       result = fibonacciInstance.generateLoop();
     } else if (method === "recursive") {
       result = [];
-      for (let i = 0; i < fibonacciInstance.sequence; i++) {
-        result.push(fibonacciInstance.generateRecursive(i));
+      for (let index = 0; index < fibonacciInstance.sequence; index++) {
+        result.push(fibonacciInstance.generateRecursive(index));
       }
     } else {
       throw new Error("Method must be loop or recursive.");

@@ -32,8 +32,8 @@ export class Palindrome {
     const cleanValue = this.value;
     const length = cleanValue.length;
 
-    for (let i = 0; i < Math.floor(length / 2); i++) {
-      if (cleanValue[i] !== cleanValue[length - i - 1]) {
+    for (let index = 0; index < Math.floor(length / 2); index++) {
+      if (cleanValue[index] !== cleanValue[length - index - 1]) {
         return false;
       }
     }

@@ -17,9 +17,10 @@ export class Factorial {
   countFactorialUsingLoop() {
     let result = 1;
 
-    for (let i = this.n; i > 0; i--) {
-      result *= i;
+    for (let index = this.n; index > 0; index--) {
+      result *= index;
     }
+
     return result;
   }
 
