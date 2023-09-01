@@ -1,4 +1,4 @@
-import { parseString } from "../helper.js";
+import { parseString } from "../../js/helper.js";
 
 export class Palindrome {
   /** @type {string} */

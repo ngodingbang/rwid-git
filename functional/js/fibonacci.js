@@ -1,4 +1,4 @@
-import { parseNumber } from "../helper.js";
+import { parseNumber } from "../../js/helper.js";
 
 /**
  * Create an array filled by fibonacci sequence using loop way.

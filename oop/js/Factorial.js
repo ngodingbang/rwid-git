@@ -1,4 +1,4 @@
-import { parseNumber } from "../helper.js";
+import { parseNumber } from "../../js/helper.js";
 
 export class Factorial {
   /** @type {number} */
