@@ -12,24 +12,7 @@ export class Factorial {
   }
 
   /**
-   * Count factorial number from the given "n" value.
-   *
-   * @param {"loop" | "recursive"} method
-   */
-  count(method) {
-    if (method !== "loop" && method !== "recursive") {
-      throw new Error("Method must be loop or recursive.");
-    }
-
-    return method === "loop"
-      ? this.countUsingLoop()
-      : this.countUsingRecursive();
-  }
-
-  /**
    * Count factorial number from the given "n" value using loop way.
-   *
-   * @returns {number}
    */
   countUsingLoop() {
     let result = 1;
@@ -55,6 +38,22 @@ export class Factorial {
     }
 
     return n * this.countUsingRecursive(n - 1);
+  }
+
+  /**
+   * Count factorial number from the given "n" value.
+   *
+   * @param {"loop" | "recursive"} method
+   * @throws {Error}
+   */
+  count(method) {
+    if (method == "loop") {
+      return this.countUsingLoop();
+    } else if (method == "recursive") {
+      return this.countUsingRecursive();
+    } else {
+      throw new Error("Method must be loop or recursive.");
+    }
   }
 }
 

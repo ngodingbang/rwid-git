@@ -12,34 +12,6 @@ export class Palindrome {
   }
 
   /**
-   * Determine whether the given value is a palindrome or not.
-   *
-   * @param {"reverse" | "loop" | "recursive"} method
-   */
-  evaluate(method) {
-    if (method !== "reverse" && method !== "loop" && method !== "recursive") {
-      throw new Error("Method must be reverse, loop, or recursive.");
-    }
-
-    return method === "reverse"
-      ? this.evaluateUsingReverse()
-      : method === "loop"
-      ? this.evaluateUsingLoop()
-      : this.evaluateUsingRecursive();
-  }
-
-  /**
-   * Return palindrome human-readable description.
-   *
-   * @param {"reverse" | "loop" | "recursive"} method
-   */
-  getDescription(method) {
-    return this.evaluate(method)
-      ? "Yes, this word is a palindrome."
-      : "No, this word is not a palindrome.";
-  }
-
-  /**
    * Determine whether the given value is a palindrome or not using reverse way.
    */
   evaluateUsingReverse() {
@@ -93,6 +65,35 @@ export class Palindrome {
 
     return true;
   }
+
+  /**
+   * Determine whether the given value is a palindrome or not.
+   *
+   * @typedef {"reverse" | "loop" | "recursive"} Method
+   * @param {Method} method
+   */
+  evaluate(method) {
+    if (method === "reverse") {
+      return this.evaluateUsingReverse();
+    } else if (method === "loop") {
+      return this.evaluateUsingLoop();
+    } else if (method === "recursive") {
+      return this.evaluateUsingRecursive();
+    } else {
+      throw new Error("Method must be reverse, loop, or recursive.");
+    }
+  }
+
+  /**
+   * Return palindrome human-readable description.
+   *
+   * @param {Method} method
+   */
+  generateStatus(method) {
+    return this.evaluate(method)
+      ? "Yes, this word is a palindrome."
+      : "No, this word is not a palindrome.";
+  }
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
@@ -102,7 +103,7 @@ document.getElementById("form").addEventListener("submit", function (event) {
     const word = event.target["word"].value;
     const method = event.target["method"].value;
 
-    const result = new Palindrome(word).getDescription(method);
+    const result = new Palindrome(word).generateStatus(method);
 
     document.getElementById("result").textContent = result;
   } catch (error) {

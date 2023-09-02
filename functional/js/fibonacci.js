@@ -31,6 +31,7 @@ function generateFibonacciUsingLoop(sequence) {
 function generateFibonacciUsingRecursive(sequence) {
   /**
    * @param {number} n
+   * @returns {number}
    */
   function fibonacci(n) {
     return n < 1 ? 0 : n <= 2 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
@@ -49,6 +50,23 @@ function generateFibonacciUsingRecursive(sequence) {
   return result;
 }
 
+/**
+ * Create an array filled by fibonacci sequence.
+ *
+ * @param {number} sequence
+ * @param {"loop"| "recursive"} method
+ * @throws {Error}
+ */
+function generateFibonacci(sequence, method) {
+  if (method === "loop") {
+    return generateFibonacciUsingLoop(sequence);
+  } else if (method === "recursive") {
+    return generateFibonacciUsingRecursive(sequence);
+  } else {
+    throw new Error("Method must be loop or recursive.");
+  }
+}
+
 document.getElementById("form").addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -56,17 +74,11 @@ document.getElementById("form").addEventListener("submit", function (event) {
     const sequence = event.target["sequence"].value;
     const method = event.target["method"].value;
 
-    let result;
+    const numbers = generateFibonacci(sequence, method);
 
-    if (method === "loop") {
-      result = generateFibonacciUsingLoop(sequence);
-    } else if (method === "recursive") {
-      result = generateFibonacciUsingRecursive(sequence);
-    } else {
-      throw new Error("Method must be loop or recursive.");
-    }
-
-    document.getElementById("result").textContent = JSON.stringify(result);
+    document.getElementById("result").innerHTML = numbers
+      .map(number => `<div class="result-item-fibonacci">${number}</div>`)
+      .join("");
   } catch (error) {
     alert(error.message);
     console.error(error);

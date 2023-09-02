@@ -39,6 +39,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 - [ianriizky/rwid-git](https://github.com/ianriizky/rwid-git)
 - [sdesakt/rwid-challenge](https://github.com/sdesakt/rwid-challenge)
+- [dianprsty/rwid-git](https://github.com/dianprsty/rwid-git)
 - **and more...**
 
 ## License
