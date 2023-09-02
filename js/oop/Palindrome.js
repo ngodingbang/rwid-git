@@ -75,19 +75,19 @@ document.getElementById("form").addEventListener("submit", function (event) {
 
     const palindromeInstance = new Palindrome(word);
 
-    let result;
+    let isPalindrome;
 
     if (method === "reverse") {
-      result = palindromeInstance.isPalindromeUsingReverse();
+      isPalindrome = palindromeInstance.isPalindromeUsingReverse();
     } else if (method === "loop") {
-      result = palindromeInstance.isPalindromeUsingLoop();
+      isPalindrome = palindromeInstance.isPalindromeUsingLoop();
     } else if (method === "recursive") {
-      result = palindromeInstance.isPalindromeUsingRecursive();
+      isPalindrome = palindromeInstance.isPalindromeUsingRecursive();
     } else {
       throw new Error("Method must be reverse, loop or recursive.")
     }
 
-    const resultText = result
+    const result = isPalindrome
       ? "Yes, this word is palindrome."
       : "No, this word is not palindrome.";
 
