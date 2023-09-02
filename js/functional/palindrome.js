@@ -7,8 +7,14 @@ import { parseString } from "../helper.js";
  */
 function isPalindromeUsingReverse(value) {
   // write your code here
-  return true;
+  if(value === value.split("").reverse().join("")){
+    return true
+  } else{
+    return false
+  }
 }
+const word = "katak"
+console.log(`Is ${word} palindrom with reverse method? : ${isPalindromeUsingReverse(word)}`)
 
 /**
  * Determine whether the given value is a palindrome or not using loop way.
@@ -17,8 +23,21 @@ function isPalindromeUsingReverse(value) {
  */
 function isPalindromeUsingLoop(value) {
   // write your code here
-  return true;
+  let test = 1
+  for(let i=0; i<value.length; i++){
+    if(value[i] === value[((value.length-1) - i)]){
+      test = test * 1
+    } else {
+      test = test * 0
+    }
+  }
+  if(test === 1){
+    return true
+  } else{
+    return false
+  }
 }
+console.log(`Is ${word} palindrom with loop method? : ${isPalindromeUsingLoop(word)}`)
 
 /**
  * Determine whether the given value is a palindrome or not using recursive way.
@@ -28,8 +47,15 @@ function isPalindromeUsingLoop(value) {
  */
 function isPalindromeUsingRecursive(value, index = 0) {
   // write your code here
-  return true;
+  if(index > value.length){
+    return value[0] === value[(value.length - 1)]? 1: 0;
+  } else{
+    let next = isPalindromeUsingRecursive(value, index + 1)
+    let test = (value[index] === value[((value.length-1)-index)]? 1:0) * next
+    return test === 0? false: true;
+  }
 }
+console.log(`Is ${word} palindrom with recursive method? : ${isPalindromeUsingRecursive(word)}`)
 
 document.getElementById("form").addEventListener("submit", function (event) {
   event.preventDefault();

@@ -6,16 +6,13 @@ import { parseNumber } from "../helper.js";
  * @param {number} n
  */
 function countFactorialUsingLoop(n) {
-  n = parseNumber(n);
-
-  let result = 1;
-
-  for (let index = n; index > 0; index--) {
-    result = result * index;
+  let value = 1;
+  for(let i=1; i<=n; i++){
+    value = value * i
   }
-
-  return result;
+  return value
 }
+console.log(`factorial with looping : ${countFactorialUsingLoop(5)}`)
 
 /**
  * Count factorial number from the given "n" value using recursive way.
@@ -23,14 +20,14 @@ function countFactorialUsingLoop(n) {
  * @param {number} n
  */
 function countFactorialUsingRecursive(n) {
-  n = parseNumber(n);
-
-  if (n < 2) {
+  if(n<=1){
     return 1;
+  } else{
+    let n_next = countFactorialUsingRecursive(n-1);
+    return n * n_next
   }
-
-  return n * countFactorialUsingRecursive(n - 1);
 }
+console.log(`factorial with recursive : ${countFactorialUsingRecursive(5)}`)
 
 document.getElementById("form").addEventListener("submit", function (event) {
   event.preventDefault();
