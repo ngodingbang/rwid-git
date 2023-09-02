@@ -2,7 +2,9 @@
 
 All notable changes to `RWID Git` will be documented in this file.
 
-## [Unreleased](https://github.com/ngodingbang/rwid-git/compare/0.3.0...develop)
+## [Unreleased](https://github.com/ngodingbang/rwid-git/compare/1.0.0...develop)
+
+## [1.0.0](https://github.com/ngodingbang/rwid-git/releases/tag/1.0.0) - 2023-09-02
 
 ## [0.3.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.3.0) - 2023-09-02
 

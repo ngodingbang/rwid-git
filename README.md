@@ -2,29 +2,48 @@
 
 Learn to code with version control system using Git. There are several study case and code example we can use to expertise our skill on Git, such as:
 
-- [x] [Basic](basic/index.html)
+- [x] [Basic](pages/basic/index.html)
 - [x] Functional Programming
-  - [x] [Factorial - Functional](functional/factorial.html)
-  - [x] [Fizz Buzz - Functional](functional/fizz-buzz.html)
-  - [x] [Palindrome - Functional](functional/palindrome.html)
-  - [x] [Fibonacci - Functional](functional/fibonacci.html)
+  - [x] [Factorial - Functional](pages/functional/factorial.html)
+  - [x] [Fizz Buzz - Functional](pages/functional/fizz-buzz.html)
+  - [x] [Palindrome - Functional](pages/functional/palindrome.html)
+  - [x] [Fibonacci - Functional](pages/functional/fibonacci.html)
 - [x] Object Oriented Programming
-  - [x] [Factorial - OOP](oop/factorial.html)
-  - [x] [Fizz Buzz - OOP](oop/fizz-buzz.html)
-  - [x] [Palindrome - OOP](oop/palindrome.html)
-  - [x] [Fibonacci - OOP](oop/fibonacci.html)
-- [x] [Standard Library](standard-library/index.html)
-- [x] [Modules](modules/index.html)
-- [x] [Asynchronous](asynchronous/index.html)
+  - [x] [Factorial - OOP](pages/oop/factorial.html)
+  - [x] [Fizz Buzz - OOP](pages/oop/fizz-buzz.html)
+  - [x] [Palindrome - OOP](pages/oop/palindrome.html)
+  - [x] [Fibonacci - OOP](pages/oop/fibonacci.html)
+- [x] [Standard Library](pages/standard-library/index.html)
+- [x] [Modules](pages/modules/index.html)
+- [x] [Asynchronous](pages/asynchronous/index.html)
 
 You can add your own study case into the list above by contributing to this repository. See [Contributing](#contributing) section for more information.
 
+## Requirement
+
+- Node.js ^18.17.0
+- Yarn ^1.22.19
+
 ## Installation
 
-You can install the project by clone it via GitHub :
+```bash
+# 1. Clone the project via GitHub
+git clone https://github.com/ngodingbang/rwid-git.git
+
+# 2. Create env configuration
+cp .env.example .env
+
+# 3. Install dependencies
+yarn
+
+# 4. Start the server (*) :
+yarn start
+```
+
+> (\*) Run this command below you want to start the server in development mode.
 
 ```bash
-git clone https://github.com/ngodingbang/rwid-git.git
+yarn dev
 ```
 
 ## Changelog
