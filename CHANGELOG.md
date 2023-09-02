@@ -13,12 +13,13 @@ All notable changes to `RWID Git` will be documented in this file.
 - refactor: rename folder name of modules html page by [@ngodingbang](https://github.com/ngodingbang) in [#6394d66](https://github.com/ngodingbang/rwid-git/commit/6394d668fb73b85193e654b983bf9aff58f3e8cf).
 - chore: set a href on generateTrElement() by [@ngodingbang](https://github.com/ngodingbang) in [#457e33a](https://github.com/ngodingbang/rwid-git/commit/457e33ac67eeb8d24f9ea6c582a9aaf14fda9e38).
 - feat: finish javascript basic html page by [@ngodingbang](https://github.com/ngodingbang) in [#b7b3b26](https://github.com/ngodingbang/rwid-git/commit/b7b3b26ff13d37f01acc8ba0f3cd0aac636f0e2d).
-- chore: add html draft page for standar-library and asynchronous by [@ngodingbang](https://github.com/ngodingbang) in [#15dbeb1](https://github.com/ngodingbang/rwid-git/commit/15dbeb17a27bc7a3f113dfc370f3193a79a04469).
 - feat: finish fibonacci js using functional by [@ngodingbang](https://github.com/ngodingbang) in [#43d6d61](https://github.com/ngodingbang/rwid-git/commit/43d6d619b5cc17050e81621e7048a8bd56d2bd58).
 - feat: finish palindrome js using functional by [@ngodingbang](https://github.com/ngodingbang) in [#c71e5f8](https://github.com/ngodingbang/rwid-git/commit/c71e5f8466122f17b252e7ff37e0606acde52933).
 - feat: finish factorial js using oop by [@ngodingbang](https://github.com/ngodingbang) in [#4854a8e](https://github.com/ngodingbang/rwid-git/commit/4854a8e3625450ff1f2bdfd52136dec0ddf8a6a8).
 - feat: finish fibonacci js using oop by [@ngodingbang](https://github.com/ngodingbang) in [#85c249c](https://github.com/ngodingbang/rwid-git/commit/85c249cb55ec1dfeefec6d9010730933d4a67816).
 - feat: finish palindrome js using oop by [@ngodingbang](https://github.com/ngodingbang) in [#883916f](https://github.com/ngodingbang/rwid-git/commit/883916f4aee173df7602358f58124d5dd870a033).
+- feat: finish javascript standard library html page by [@ngodingbang](https://github.com/ngodingbang) in [#de2a2fc](https://github.com/ngodingbang/rwid-git/commit/de2a2fc1b026ff3a267ff67d9f7c97043f7e1ac1).
+- feat: finish javascript asynchronous html page by [@ngodingbang](https://github.com/ngodingbang) in [#4f528a6](https://github.com/ngodingbang/rwid-git/commit/4f528a60815063629fe0bb6edcb6552541624a57).
 
 ## [0.2.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.2.0) - 2023-08-20
 
