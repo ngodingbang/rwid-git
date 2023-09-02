@@ -25,7 +25,7 @@ function isPalindromeUsingLoop(value) {
 
   const length = cleanValue.length;
 
-  for (let index = 0; index < Math.floor(length / 2); i++) {
+  for (let index = 0; index < Math.floor(length / 2); index++) {
     if (cleanValue[index] !== cleanValue[length - 1 - index]) {
 
       return false;
