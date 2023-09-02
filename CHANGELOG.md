@@ -4,7 +4,7 @@ All notable changes to `RWID Git` will be documented in this file.
 
 ## [Unreleased](https://github.com/ngodingbang/rwid-git/compare/0.3.0...develop)
 
-## [0.3.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.3.0) - 2023-08-31
+## [0.3.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.3.0) - 2023-09-02
 
 - refactor: move html and js file into its own folder by [@ngodingbang](https://github.com/ngodingbang) in [#89874f3](https://github.com/ngodingbang/rwid-git/commit/89874f31acad765ef2e62d3b7ac296a150c844f3).
 - feat: add back button on javascript modules html page by [@ngodingbang](https://github.com/ngodingbang) in [#b9a8a9f](https://github.com/ngodingbang/rwid-git/commit/b9a8a9ffc091ff4aa3b7c8df29f71526cd1b1afe).
@@ -20,6 +20,7 @@ All notable changes to `RWID Git` will be documented in this file.
 - feat: finish palindrome js using oop by [@ngodingbang](https://github.com/ngodingbang) in [#883916f](https://github.com/ngodingbang/rwid-git/commit/883916f4aee173df7602358f58124d5dd870a033).
 - feat: finish javascript standard library html page by [@ngodingbang](https://github.com/ngodingbang) in [#de2a2fc](https://github.com/ngodingbang/rwid-git/commit/de2a2fc1b026ff3a267ff67d9f7c97043f7e1ac1).
 - feat: finish javascript asynchronous html page by [@ngodingbang](https://github.com/ngodingbang) in [#4f528a6](https://github.com/ngodingbang/rwid-git/commit/4f528a60815063629fe0bb6edcb6552541624a57).
+- feat: merge pull request from dianprsty/develop by [@dianprsty](https://github.com/dianprsty) in [#12](https://github.com/ngodingbang/rwid-git/pull/12).
 
 ## [0.2.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.2.0) - 2023-08-20
 
