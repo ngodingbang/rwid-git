@@ -6,6 +6,8 @@ All notable changes to `RWID Git` will be documented in this file.
 
 ## [1.0.0](https://github.com/ngodingbang/rwid-git/releases/tag/1.0.0) - 2023-09-02
 
+- chore: npm init and using express.js [@ngodingbang](https://github.com/ngodingbang) in [#b8984dd](https://github.com/ngodingbang/rwid-git/commit/b8984dd52101c1cf19620d4fd7fb5366224a77de).
+
 ## [0.3.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.3.0) - 2023-09-02
 
 - refactor: move html and js file into its own folder by [@ngodingbang](https://github.com/ngodingbang) in [#89874f3](https://github.com/ngodingbang/rwid-git/commit/89874f31acad765ef2e62d3b7ac296a150c844f3).
