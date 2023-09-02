@@ -3,19 +3,19 @@
 Learn to code with version control system using Git. There are several study case and code example we can use to expertise our skill on Git, such as:
 
 - [x] [Basic](basic/index.html)
-- [ ] Functional Programming
+- [x] Functional Programming
   - [x] [Factorial - Functional](functional/factorial.html)
   - [x] [Fizz Buzz - Functional](functional/fizz-buzz.html)
-  - [ ] [Palindrome - Functional](functional/palindrome.html)
-  - [ ] [Fibonacci - Functional](functional/fibonacci.html)
-- [ ] Object Oriented Programming
-  - [ ] [Factorial - OOP](oop/factorial.html)
+  - [x] [Palindrome - Functional](functional/palindrome.html)
+  - [x] [Fibonacci - Functional](functional/fibonacci.html)
+- [x] Object Oriented Programming
+  - [x] [Factorial - OOP](oop/factorial.html)
   - [x] [Fizz Buzz - OOP](oop/fizz-buzz.html)
-  - [ ] [Palindrome - OOP](oop/palindrome.html)
-  - [ ] [Fibonacci - OOP](oop/fibonacci.html)
-- [ ] [Standard Library](standard-library/index.html)
-- [ ] [Modules](modules/index.html)
-- [ ] [Asynchronous](asynchronous/index.html)
+  - [x] [Palindrome - OOP](oop/palindrome.html)
+  - [x] [Fibonacci - OOP](oop/fibonacci.html)
+- [x] [Standard Library](standard-library/index.html)
+- [x] [Modules](modules/index.html)
+- [x] [Asynchronous](asynchronous/index.html)
 
 You can add your own study case into the list above by contributing to this repository. See [Contributing](#contributing) section for more information.
 
