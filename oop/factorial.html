@@ -9,53 +9,60 @@
       href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="../css/index.css" />
   </head>
 
   <body>
-    <h1>Factorial (OOP)</h1>
+    <main class="main-container">
+      <h1>Factorial (OOP)</h1>
+      <form id="form">
+        <div class="input-number-container">
+          <label for="n">Input the n number</label>
+          <input
+            type="number"
+            name="n"
+            id="n"
+            min="0"
+            step="1"
+            required="required"
+          />
+        </div>
 
-    <form id="form">
-      <label for="n">Input the n number</label>
-      <input
-        type="number"
-        name="n"
-        id="n"
-        min="0"
-        step="1"
-        required="required"
-      />
+        <div class="method-container">
+          <label>Choose the method</label>
 
-      <br />
+          <label for="method-loop" class="method-item">
+            <input
+              type="radio"
+              name="method"
+              id="method-loop"
+              value="loop"
+              required="required"
+            />
+            <span>Loop</span></label
+          >
+          <label for="method-recursive" class="method-item">
+            <input
+              type="radio"
+              name="method"
+              id="method-recursive"
+              value="recursive"
+              required="required"
+            />
+            <span>Recursive</span></label
+          >
+        </div>
 
-      <label>Choose the method</label>
-      <input
-        type="radio"
-        name="method"
-        id="method-loop"
-        value="loop"
-        required="required"
-      />
-      <label for="method-loop">Loop</label>
-      <input
-        type="radio"
-        name="method"
-        id="method-recursive"
-        value="recursive"
-        required="required"
-      />
-      <label for="method-recursive">Recursive</label>
+        <button type="submit">Count Factorial</button>
+      </form>
 
-      <br />
+      <p>
+        <strong>Result: <span id="result">-</span></strong>
+      </p>
 
-      <button type="submit">Count Factorial</button>
-    </form>
+      <p><a href="/">Back to Homepage</a></p>
+    </main>
 
-    <p>
-      <strong>Result: <span id="result">-</span></strong>
-    </p>
-
-    <p><a href="/">Back to Homepage</a></p>
-
-    <script type="module" src="../js/oop/Factorial.js"></script>
+    <script type="module" src="./js/Factorial.js"></script>
   </body>
 </html>
