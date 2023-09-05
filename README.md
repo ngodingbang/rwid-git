@@ -17,6 +17,7 @@ Learn to code with version control system using Git. There are several study cas
 - [x] [Modules](pages/modules/index.html)
 - [x] [Asynchronous](pages/asynchronous/index.html)
 - [ ] [Node.js](pages/nodejs/index.html)
+  - [x] [Standard Library](pages/nodejs/standard-library/index.html)
 
 You can add your own study case into the list above by contributing to this repository. See [Contributing](#contributing) section for more information.
 
