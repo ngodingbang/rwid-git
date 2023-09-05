@@ -1,6 +1,6 @@
 import { generateTrElement } from "./generateTrElement.js";
 
-function generateMember9() {
+function generateMember() {
   generateTrElement({
     index: 9,
     name: "Inga Resa",
@@ -10,4 +10,4 @@ function generateMember9() {
   });
 }
 
-export { generateMember9 };
+export { generateMember };

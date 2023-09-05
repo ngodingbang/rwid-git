@@ -4,7 +4,7 @@ import { generateMentor } from "./generateMentor.js";
 function main() {
   generateMentor();
 
-  for (let index = 1; index <= 11; index++) {
+  for (let index = 1; index <= 12; index++) {
     generateMember[`m${index}`]();
   }
 }

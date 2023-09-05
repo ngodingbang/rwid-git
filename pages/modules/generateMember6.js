@@ -1,6 +1,6 @@
 import { generateTrElement } from "./generateTrElement.js";
 
-function generateMember6() {
+function generateMember() {
   generateTrElement({
     index: 6,
     name: "Iwan Purwadi",
@@ -10,4 +10,4 @@ function generateMember6() {
   });
 }
 
-export { generateMember6 };
+export { generateMember };

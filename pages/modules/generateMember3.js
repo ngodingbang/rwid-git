@@ -1,15 +1,16 @@
 import { Member } from "./Member.js";
 
-const generateMember3 = () => {
-  const member3 = new Member(
+const generateMember = () => {
+  const member = new Member(
     "Muchamad Faiz",
     3,
     "Serang, Banten",
     "01",
-    "https://github.com/muchamadfaiz"
+    "https://github.com/muchamadfaiz",
+    "muchamadfaiz",
   );
 
-  member3.generateTrElement();
+  member.generateTrElement();
 };
 
-export { generateMember3 };
+export { generateMember };

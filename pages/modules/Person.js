@@ -3,7 +3,7 @@ export class Person {
   name;
 
   /**
-   * @param {string} name
+   * @param {Person["name"]} name
    */
   constructor(name) {
     this.name = name;
