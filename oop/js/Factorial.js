@@ -13,15 +13,11 @@ export class Factorial {
 
   /**
    * Count factorial number from the given "n" value using loop way.
+   *
+   * @returns {number}
    */
   countUsingLoop() {
-    let result = 1;
-
-    for (let index = this.n; index > 0; index--) {
-      result = result * index;
-    }
-
-    return result;
+    // write your code here
   }
 
   /**
@@ -31,13 +27,7 @@ export class Factorial {
    * @returns {number}
    */
   countUsingRecursive(n = undefined) {
-    n ||= this.n;
-
-    if (n < 2) {
-      return 1;
-    }
-
-    return n * this.countUsingRecursive(n - 1);
+    // write your code here
   }
 
   /**

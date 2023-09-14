@@ -13,57 +13,30 @@ export class Palindrome {
 
   /**
    * Determine whether the given value is a palindrome or not using reverse way.
+   *
+   * @returns {boolean}
    */
   evaluateUsingReverse() {
-    let newValue = "";
-
-    for (let index = this.value.length - 1; index >= 0; index--) {
-      newValue += this.value[index];
-    }
-
-    return this.value === newValue;
+    // write your code here
   }
 
   /**
    * Determine whether the given value is a palindrome or not using loop way.
+   *
+   * @returns {boolean}
    */
   evaluateUsingLoop() {
-    for (let index = 0; index < Math.floor(this.value.length / 2); index++) {
-      const lastCharacterIndex = this.value.length - (index + 1);
-
-      const firstCharacter = this.value[index];
-      const lastCharacter = this.value[lastCharacterIndex];
-
-      if (firstCharacter !== lastCharacter) {
-        return false;
-      }
-    }
-
-    return true;
+    // write your code here
   }
 
   /**
    * Determine whether the given value is a palindrome or not using recursive way.
    *
    * @param {number | undefined} index
+   * @returns {boolean}
    */
   evaluateUsingRecursive(index = undefined) {
-    index ||= 0;
-
-    if (index < Math.floor(this.value.length / 2)) {
-      const lastCharacterIndex = this.value.length - (index + 1);
-
-      const firstCharacter = this.value[index];
-      const lastCharacter = this.value[lastCharacterIndex];
-
-      if (firstCharacter !== lastCharacter) {
-        return false;
-      }
-
-      return this.evaluateUsingRecursive(this.value, index + 1);
-    }
-
-    return true;
+    // write your code here
   }
 
   /**

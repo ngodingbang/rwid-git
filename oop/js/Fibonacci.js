@@ -12,45 +12,21 @@ export class Fibonacci {
   }
 
   /**
-   * @param {number} n
-   * @returns {number}
-   */
-  static get(n) {
-    return n < 1 ? 0 : n <= 2 ? 1 : this.get(n - 1) + this.get(n - 2);
-  }
-
-  /**
    * Create an array filled by fibonacci sequence using loop way.
+   *
+   * @returns {number[]}
    */
   generateUsingLoop() {
-    let result = [];
-    let prev = 0;
-    let next = 1;
-
-    for (let index = 0; index < this.sequence; index++) {
-      result.push(prev);
-
-      const current = prev + next;
-      prev = next;
-      next = current;
-    }
-
-    return result;
+    // write your code here
   }
 
   /**
    * Create an array filled by fibonacci sequence using recursive way.
+   *
+   * @returns {number[]}
    */
   generateUsingRecursive() {
-    let result = [];
-
-    for (let index = 0; index < this.sequence; index++) {
-      const current = Fibonacci.get(index);
-
-      result.push(current);
-    }
-
-    return result;
+    // write your code here
   }
 
   /**
