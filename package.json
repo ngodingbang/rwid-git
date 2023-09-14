@@ -6,6 +6,10 @@
     "node": "^18.17.0",
     "yarn": "^1.22.19"
   },
+  "volta": {
+    "node": "18.17.0",
+    "yarn": "1.22.19"
+  },
   "type": "module",
   "version": "1.0.0",
   "description": "Learn to code with version control system using Git.",
