@@ -31,15 +31,11 @@ export class Factorial {
    * @param {number | undefined} n
    */
   countUsingRecursive(number = undefined) {
-    if (number == undefined) {
+    if (number == undefined || number < 2) {
       return 1;
     }
 
-    if (number < 2) {
-      return 1;
-    } else {
-      return number * this.countUsingRecursive(number - 1);
-    }
+    return number * this.countUsingRecursive(number - 1);
   }
 
   count(method) {
@@ -64,14 +60,14 @@ document.getElementById("form").addEventListener("submit", function (event) {
     const number = event.target["n"].value;
     const method = event.target["method"].value;
 
-    console.log(number);
-    console.log(method);
+    // console.log(number);
+    // console.log(method);
 
     const result = new Factorial(number).count(method);
 
     document.getElementById("result").textContent = result;
   } catch (error) {
     alert(error.message);
-    console.error(error);
+    // console.error(error);
   }
 });
