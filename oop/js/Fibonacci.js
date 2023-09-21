@@ -17,16 +17,54 @@ export class Fibonacci {
    * @returns {number[]}
    */
   generateUsingLoop() {
-    // write your code here
+    let result = [];
+
+    for (let index = 1; index <= this.sequence; index++) {
+      if (index == 1) {
+        result.push(0);
+        continue;
+      }
+
+      if (index == 2) {
+        result.push(1);
+        continue;
+      }
+
+      let lastIndex = result.length - 1;
+      let currentNumber = result[lastIndex] + result[lastIndex - 1];
+
+      result.push(currentNumber);
+    }
+
+    return result;
   }
 
   /**
    * Create an array filled by fibonacci sequence using recursive way.
    *
+   * @param {number[]} [result=[]]
+   * @param {number} [index=0]
    * @returns {number[]}
    */
-  generateUsingRecursive() {
-    // write your code here
+  generateUsingRecursive(result = [], index = 0) {
+    if ([0, 1].includes(index)) {
+      result.push(index);
+      index++;
+
+      return this.generateUsingRecursive(result, index);
+    }
+
+    if (this.sequence - index <= 0) {
+      return result;
+    }
+
+    let lastIndex = result.length - 1;
+    let currentNumber = result[lastIndex] + result[lastIndex - 1];
+
+    result.push(currentNumber);
+    index++;
+
+    return this.generateUsingRecursive(result, index);
   }
 
   /**

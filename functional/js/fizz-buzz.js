@@ -1,3 +1,5 @@
+import { parseNumber } from "../../js/helper.js";
+
 /**
  * Create an array filled by "fizz", "buzz", or "fizz buzz" based on
  * this requirement below (highest priority from above).
@@ -10,7 +12,21 @@
  * @returns {("fizz buzz" | "fizz" | "buzz")[]}
  */
 function generateFizzBuzz(sequence) {
-  // write your code here
+  sequence = parseNumber(sequence);
+
+  let result = [];
+
+  for (let index = 1; index <= sequence; index++) {
+    if (index % 4 === 0 || index % 7 === 0) {
+      result.push("fizz buzz");
+    } else if (index % 2 === 1) {
+      result.push("fizz");
+    } else if (index % 2 === 0) {
+      result.push("buzz");
+    }
+  }
+
+  return result;
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {

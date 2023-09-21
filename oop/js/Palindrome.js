@@ -17,7 +17,9 @@ export class Palindrome {
    * @returns {boolean}
    */
   evaluateUsingReverse() {
-    // write your code here
+    let reversedValue = this.value.split("").reverse().join("");
+
+    return this.value == reversedValue;
   }
 
   /**
@@ -26,17 +28,33 @@ export class Palindrome {
    * @returns {boolean}
    */
   evaluateUsingLoop() {
-    // write your code here
+    let reversedValue = "";
+
+    for (let index = this.value.length - 1; index >= 0; index--) {
+      reversedValue += this.value[index];
+    }
+
+    return this.value == reversedValue;
   }
 
   /**
    * Determine whether the given value is a palindrome or not using recursive way.
    *
-   * @param {number | undefined} index
+   * @param {string} [reversedValue=""]
+   * @param {number} [index=0]
    * @returns {boolean}
    */
-  evaluateUsingRecursive(index = undefined) {
-    // write your code here
+  evaluateUsingRecursive(reversedValue = "", index = 0) {
+    let lastIndex = this.value.length - 1;
+
+    if (reversedValue.length == this.value.length) {
+      return reversedValue == this.value;
+    }
+
+    reversedValue += this.value[lastIndex - index];
+    index++;
+
+    return this.evaluateUsingRecursive(reversedValue, index);
   }
 
   /**

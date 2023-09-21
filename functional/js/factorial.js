@@ -1,3 +1,5 @@
+import { parseNumber } from "../../js/helper.js";
+
 /**
  * Count factorial number from the given "n" value using loop way.
  *
@@ -5,7 +7,15 @@
  * @returns {number}
  */
 function countFactorialUsingLoop(n) {
-  // write your code here
+  n = parseNumber(n);
+
+  let result = 1;
+
+  for (let index = n; index > 0; index--) {
+    result = result * index;
+  }
+
+  return result;
 }
 
 /**
@@ -15,7 +25,13 @@ function countFactorialUsingLoop(n) {
  * @returns {number}
  */
 function countFactorialUsingRecursive(n) {
-  // write your code here
+  n = parseNumber(n);
+
+  if (n < 2) {
+    return 1;
+  }
+
+  return n * countFactorialUsingRecursive(n - 1);
 }
 
 /**
