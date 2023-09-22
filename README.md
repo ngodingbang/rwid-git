@@ -24,7 +24,7 @@ You can add your own study case into the list above by contributing to this repo
 ## Requirement
 
 - Node.js ^18.17.0
-- Yarn ^1.22.19
+- npm ^1.22.19
 
 ## Installation
 
@@ -36,16 +36,16 @@ git clone https://github.com/ngodingbang/rwid-git.git
 cp .env.example .env
 
 # 3. Install dependencies
-yarn
+npm run
 
 # 4. Start the server (*) :
-yarn start
+npm run start
 ```
 
 > (\*) Run this command below you want to start the server in development mode.
 
 ```bash
-yarn dev
+npm dev
 ```
 
 ## Changelog
