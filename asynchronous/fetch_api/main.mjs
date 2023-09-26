@@ -130,7 +130,7 @@ async function fetchGitHubApi(member) {
   };
 }
 
-const members = [member.m12];
+const members = [member.m1, member.m12];
 
 const response = await Promise.all(
   members.map(member => fetchGitHubApi(member)),
