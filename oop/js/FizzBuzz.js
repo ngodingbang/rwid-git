@@ -22,7 +22,19 @@ export class FizzBuzz {
    * @returns {("fizz buzz" | "fizz" | "buzz")[]}
    */
   generate() {
-    // write your code here
+    let result = [];
+
+    for (let index = 1; index <= this.sequence; index++) {
+      if (index % 4 === 0 || index % 7 === 0) {
+        result.push("fizz buzz");
+      } else if (index % 2 === 1) {
+        result.push("fizz");
+      } else if (index % 2 === 0) {
+        result.push("buzz");
+      }
+    }
+
+    return result;
   }
 }
 

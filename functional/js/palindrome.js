@@ -1,3 +1,5 @@
+import { parseString } from "../../js/helper.js";
+
 /**
  * Determine whether the given value is a palindrome or not using reverse way.
  *
@@ -5,7 +7,11 @@
  * @param {boolean}
  */
 function isPalindromeUsingReverse(value) {
-  // write your code here
+  value = parseString(value);
+
+  let reversedValue = value.split("").reverse().join("");
+
+  return value == reversedValue;
 }
 
 /**
@@ -15,18 +21,38 @@ function isPalindromeUsingReverse(value) {
  * @returns {boolean}
  */
 function isPalindromeUsingLoop(value) {
-  // write your code here
+  value = parseString(value);
+
+  let reversedValue = "";
+
+  for (let index = value.length - 1; index >= 0; index--) {
+    reversedValue += value[index];
+  }
+
+  return value == reversedValue;
 }
 
 /**
  * Determine whether the given value is a palindrome or not using recursive way.
  *
  * @param {string} value
- * @param {number} index
+ * @param {string} [reversedValue=""]
+ * @param {number} [index=0]
  * @returns {boolean}
  */
-function isPalindromeUsingRecursive(value, index = 0) {
-  // write your code here
+function isPalindromeUsingRecursive(value, reversedValue = "", index = 0) {
+  value = parseString(value);
+
+  let lastIndexOfValue = value.length - 1;
+
+  if (reversedValue.length == value.length) {
+    return reversedValue == value;
+  }
+
+  reversedValue += value[lastIndexOfValue - index];
+  index++;
+
+  return isPalindromeUsingRecursive(value, reversedValue, index);
 }
 
 /**

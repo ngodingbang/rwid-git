@@ -17,7 +17,13 @@ export class Factorial {
    * @returns {number}
    */
   countUsingLoop() {
-    // write your code here
+    let result = 1;
+
+    for (let index = this.n; index > 0; index--) {
+      result *= index;
+    }
+
+    return result;
   }
 
   /**
@@ -27,7 +33,11 @@ export class Factorial {
    * @returns {number}
    */
   countUsingRecursive(n = undefined) {
-    // write your code here
+    if (this.n == 0) {
+      return 1;
+    }
+
+    return this.n * this.countUsingRecursive(this.n--);
   }
 
   /**

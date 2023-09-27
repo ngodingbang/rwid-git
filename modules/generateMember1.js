@@ -1,16 +1,17 @@
 import { Member } from "./Member.js";
 
-function generateMember() {
-  const member = new Member(
-    "Dian Prasetyo",
-    1,
-    "Boyolali, Jawa Tengah",
-    "08",
-    "https://github.com/dianprsty",
-    "dianprsty",
-  );
+const member = new Member(
+  "Dian Prasetyo",
+  1,
+  "Boyolali, Jawa Tengah",
+  "08",
+  "https://github.com/dianprsty",
+  "dianprsty",
+  "rwid-git",
+);
 
+function generateMember() {
   member.generateTrElement();
 }
 
-export { generateMember };
+export { member, generateMember };

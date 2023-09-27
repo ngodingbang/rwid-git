@@ -1,3 +1,5 @@
+import { parseNumber } from "../../js/helper.js";
+
 /**
  * Create an array filled by fibonacci sequence using loop way.
  *
@@ -5,17 +7,54 @@
  * @returns {number[]}
  */
 function generateFibonacciUsingLoop(sequence) {
-  // write your code here
+  sequence = parseNumber(sequence);
+
+  let result = [];
+
+  for (let index = 0; index < sequence; index++) {
+    if ([0, 1].includes(index)) {
+      result.push(index);
+      continue;
+    }
+
+    let lastIndex = result.length - 1;
+    let currentNumber = result[lastIndex] + result[lastIndex - 1];
+
+    result.push(currentNumber);
+  }
+
+  return result;
 }
 
 /**
  * Create an array filled by fibonacci sequence using recursive way.
  *
  * @param {number} sequence
+ * @param {number[]} [result=[]]
+ * @param {number} [index=0]
  * @returns {number[]}
  */
-function generateFibonacciUsingRecursive(sequence) {
-  // write your code here
+function generateFibonacciUsingRecursive(sequence, result = [], index = 0) {
+  sequence = parseNumber(sequence);
+
+  if (sequence - index <= 0) {
+    return result;
+  }
+
+  if ([0, 1].includes(index)) {
+    result.push(index);
+    index++;
+
+    return generateFibonacciUsingRecursive(sequence, result, index);
+  }
+
+  let lastIndex = result.length - 1;
+  let currentNumber = result[lastIndex] + result[lastIndex - 1];
+
+  result.push(currentNumber);
+  index++;
+
+  return generateFibonacciUsingRecursive(sequence, result, index);
 }
 
 /**
