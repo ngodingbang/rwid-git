@@ -14,6 +14,7 @@ All notable changes to `RWID Git` will be documented in this file.
 - feat: create javascript asynchronous fetch api page by [@ngodingbang](https://github.com/ngodingbang) in [#9996790](https://github.com/ngodingbang/rwid-git/commit/99967905df1c62e01515121b1bfa8037eb8239a1).
 - feat: using @ianriizky/node-check-version to run node and yarn version checking by [@ngodingbang](https://github.com/ngodingbang) in [#6d0bb7a](https://github.com/ngodingbang/rwid-git/commit/6d0bb7ae6aecb5f4fb53a4ae9327cf645a7420cf).
 - chore!: drop support for nvm and using volta as node version manager by [@ngodingbang](https://github.com/ngodingbang) in [#9647f13](https://github.com/ngodingbang/rwid-git/commit/9647f136733252e3339a11f36e09a76ca080953c).
+- fix: create env.js to handle env configuration load by [@ngodingbang](https://github.com/ngodingbang) in [#162db44](https://github.com/ngodingbang/rwid-git/commit/162db44826e0896f8904b7f4a7a702f2bf1c02d2).
 
 ## [0.3.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.3.0) - 2023-09-02
 
