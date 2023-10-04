@@ -32,7 +32,7 @@ app.get("/favicon.ico", async (req, res) => {
   const favicon = await fetch(process.env.FAVICON_URL);
 
   if (favicon.status !== 200) {
-    throw new Error("Favicon loading failed.");
+    throw new ReferenceError("Favicon loading failed.");
   }
 
   const blob = await favicon.blob();
