@@ -1,55 +1,51 @@
 import { parseNumber } from "../../js/helper.js";
 
 /**
- * Create an array filled by "fizz", "buzz", or "fizz buzz" based on
- * this requirement below (highest priority from above).
- *
- * Muliples of 4 or 7: "fizz buzz"
- * Odd sequence: "fizz"
- * Even sequence: "buzz"
- *
- * @param {number} sequence
- */
-function generateFizzBuzz(sequence) {
-  sequence = parseNumber(sequence);
-
-  let result = [];
-
-  for (let index = 1; index <= sequence; index++) {
-    if (index % 4 === 0 || index % 7 === 0) {
-      result.push("fizz buzz");
-    } else if (index % 2 === 1) {
-      result.push("fizz");
-    } else if (index % 2 === 0) {
-      result.push("buzz");
-    }
+* Using Simple Loop
+* @param {number} sequence
+*/
+function generateFizzBuzz (sequence) {
+  for (let i = 1; i <= sequence; i++) {
+      if (i % 4 === 0 || i % 7 === 0) {
+          console.log (`fizz buzz ${i}`);
+          continue;
+      } else if (i % 2 === 1) {
+          console.log (`fizz ${i}`)
+      } else if (i % 2 === 0) {
+          console.log (`buzz ${i}`)
+      } 
   }
-
-  return result;
 }
 
-document.getElementById("form").addEventListener("submit", function (event) {
-  event.preventDefault();
+generateFizzBuzz (8);
 
-  try {
-    const sequence = event.target["sequence"].value;
-
-    const fizzBuzzs = generateFizzBuzz(sequence);
-
-    document.getElementById("result").innerHTML = fizzBuzzs
-      .map(
-        (fizzBuzz, index) =>
-          `<div class="result-item-fizzbuzz bg-${
-            {
-              "fizz buzz": "red",
-              fizz: "blue",
-              buzz: "green",
-            }[fizzBuzz]
-          }">${index + 1} ${fizzBuzz}</div>`,
-      )
-      .join("");
-  } catch (error) {
-    alert(error.message);
-    console.error(error);
+/**
+* Using concept "Const of" and  "Function as a parameter"
+* @param {()} sequence 
+*/
+function generateFizzBuzz2 (sequence) {
+  for (const i of sequence)
+  if (i % 4 === 0 || i % 7 === 0) {
+      console.log (`fizz buzz ${i}`);
+  } else if (i % 2 === 1) {
+      console.log (`fizz ${i}`)
+  } else if (i % 2 === 0) {
+      console.log (`buzz ${i}`)
   }
-});
+}
+
+/**
+* 
+* @param {number} customNumber 
+*/
+numberGenerator = function (customNumber) {
+  let array = []; 
+  
+  for (let i = 1; i <= customNumber; i++) {
+      array [i - 1] = i;
+   }
+
+  return array;
+}
+
+generateFizzBuzz2 (numberGenerator (8));
