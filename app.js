@@ -3,8 +3,6 @@ import express from "express";
 import createError from "http-errors";
 import logger from "morgan";
 import nunjucks from "nunjucks";
-import path from "path";
-import { fileURLToPath } from "url";
 import "./env.js";
 
 const app = express();
@@ -45,11 +43,7 @@ app.get("/favicon.ico", async (req, res) => {
 /**
  * Static pages.
  */
-app.use(
-  express.static(
-    path.join(path.dirname(fileURLToPath(import.meta.url)), "pages"),
-  ),
-);
+app.use(express.static("pages"));
 
 app.use(
   /**
