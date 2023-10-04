@@ -1,113 +1,36 @@
 import { parseString } from "../../js/helper.js";
 
-export class Palindrome {
-  /** @type {string} */
-  value;
-
+/**
+ * Palindrome class to check if a given string is a palindrome.
+ */
+class Palindrome {
   /**
-   * @param {string} value
+   * Initializes a new instance of the Palindrome class.
+   * @param {string} n 
    */
-  constructor(value) {
-    this.value = parseString(value);
+  constructor(n) {
+    this.input = n;
   }
 
   /**
-   * Determine whether the given value is a palindrome or not using reverse way.
+   * Checks if the provided string (or the one set during class instantiation) is a palindrome.
+   * @param {string} [i=this.input] 
+   * @returns {boolean} 
    */
-  evaluateUsingReverse() {
-    let newValue = "";
-
-    for (let index = this.value.length - 1; index >= 0; index--) {
-      newValue += this.value[index];
-    }
-
-    return this.value === newValue;
+  isPalindrome(i = this.input) {
+    const cleanedInput = i.replace(/\s/g, "").toLowerCase();
+    const reversedInput = cleanedInput.split("").reverse().join("");
+    return cleanedInput === reversedInput;
   }
 
   /**
-   * Determine whether the given value is a palindrome or not using loop way.
+   * Displays in the console whether the provided string (or the one set during class instantiation) is a palindrome.
+   * @param {string} [i=this.input] 
    */
-  evaluateUsingLoop() {
-    for (let index = 0; index < Math.floor(this.value.length / 2); index++) {
-      const lastCharacterIndex = this.value.length - (index + 1);
-
-      const firstCharacter = this.value[index];
-      const lastCharacter = this.value[lastCharacterIndex];
-
-      if (firstCharacter !== lastCharacter) {
-        return false;
-      }
-    }
-
-    return true;
-  }
-
-  /**
-   * Determine whether the given value is a palindrome or not using recursive way.
-   *
-   * @param {number | undefined} index
-   */
-  evaluateUsingRecursive(index = undefined) {
-    index ||= 0;
-
-    if (index < Math.floor(this.value.length / 2)) {
-      const lastCharacterIndex = this.value.length - (index + 1);
-
-      const firstCharacter = this.value[index];
-      const lastCharacter = this.value[lastCharacterIndex];
-
-      if (firstCharacter !== lastCharacter) {
-        return false;
-      }
-
-      return this.evaluateUsingRecursive(this.value, index + 1);
-    }
-
-    return true;
-  }
-
-  /**
-   * Determine whether the given value is a palindrome or not.
-   *
-   * @typedef {"reverse" | "loop" | "recursive"} Method
-   * @param {Method} method
-   */
-  evaluate(method) {
-    if (method === "reverse") {
-      return this.evaluateUsingReverse();
-    } else if (method === "loop") {
-      return this.evaluateUsingLoop();
-    } else if (method === "recursive") {
-      return this.evaluateUsingRecursive();
-    } else {
-      throw new Error("Method must be reverse, loop, or recursive.");
-    }
-  }
-
-  /**
-   * Return palindrome human-readable description.
-   *
-   * @param {Method} method
-   */
-  generateStatus(method) {
-    return this.evaluate(method)
-      ? "Yes, this word is a palindrome."
-      : "No, this word is not a palindrome.";
+  showAtConsole(i = this.input) {
+    console.info(`Is "${i}" a Palindrome : ${this.isPalindrome()}`);
   }
 }
 
-document.getElementById("form").addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  try {
-    const word = event.target["word"].value;
-    const method = event.target["method"].value;
-
-    const result = new Palindrome(word).generateStatus(method);
-
-    document.getElementById("result").textContent = result;
-  } catch (error) {
-    alert(error.message);
-    console.error(error);
-  }
-});
+const Palindrome1 = new Palindrome("Race Car");
+Palindrome1.showAtConsole();
