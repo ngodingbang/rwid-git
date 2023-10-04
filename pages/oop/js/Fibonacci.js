@@ -1,90 +1,39 @@
 import { parseNumber } from "../../js/helper.js";
 
-export class Fibonacci {
-  /** @type {number} */
-  sequence;
-
+/**
+ * Fibonacci class to generate Fibonacci sequences.
+ */
+class Fibonacci {
   /**
-   * @param {number} sequence
+   * Initializes a new instance of the Fibonacci class.
+   * @param {number} n 
    */
-  constructor(sequence) {
-    this.sequence = parseNumber(sequence);
+  constructor(n) {
+    this.input = n;
   }
 
   /**
-   * @param {number} n
-   * @returns {number}
+   * Recursively generates a Fibonacci sequence up to the specified position.
+   * @param {number} [i=this.input] 
+   * @returns {number} 
    */
-  static get(n) {
-    return n < 1 ? 0 : n <= 2 ? 1 : this.get(n - 1) + this.get(n - 2);
+  generateSequence(i = this.input) {
+    return i <= 0
+      ? 0
+      : i <= 2
+      ? 1
+      : this.generateSequence(i - 1)
+      + this.generateSequence(i - 2);
   }
 
   /**
-   * Create an array filled by fibonacci sequence using loop way.
+   * Logs the Fibonacci sequence value of the specified position to the console.
+   * @param {number} [i=this.input] 
    */
-  generateUsingLoop() {
-    let result = [];
-    let prev = 0;
-    let next = 1;
-
-    for (let index = 0; index < this.sequence; index++) {
-      result.push(prev);
-
-      const current = prev + next;
-      prev = next;
-      next = current;
-    }
-
-    return result;
-  }
-
-  /**
-   * Create an array filled by fibonacci sequence using recursive way.
-   */
-  generateUsingRecursive() {
-    let result = [];
-
-    for (let index = 0; index < this.sequence; index++) {
-      const current = Fibonacci.get(index);
-
-      result.push(current);
-    }
-
-    return result;
-  }
-
-  /**
-   * Create an array filled by fibonacci sequence.
-   *
-   * @param {"loop" | "recursive"} method
-   */
-  generate(method) {
-    if (method === "loop") {
-      return this.generateUsingLoop();
-    } else if (method === "recursive") {
-      return this.generateUsingRecursive();
-    } else {
-      throw new Error("Method must be loop or recursive.");
-    }
+  showAtConsole(i = this.input) {
+    console.info(`Fibonacci Sequence of ${i} is ${this.generateSequence()} `);
   }
 }
 
-document.getElementById("form").addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  try {
-    const sequence = event.target["sequence"].value;
-    const method = event.target["method"].value;
-
-    const numbers = new Fibonacci(sequence).generate(method);
-
-    document.getElementById("result").innerHTML = document.getElementById(
-      "result",
-    ).innerHTML = numbers
-      .map(number => `<div class="result-item-fibonacci">${number}</div>`)
-      .join("");
-  } catch (error) {
-    alert(error.message);
-    console.error(error);
-  }
-});
+const generateFibonacci1 = new Fibonacci(10);
+generateFibonacci1.showAtConsole();
