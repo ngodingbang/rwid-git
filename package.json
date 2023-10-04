@@ -1,0 +1,58 @@
+{
+  "name": "rwid-git",
+  "private": true,
+  "engineStrict": true,
+  "engines": {
+    "node": "^18.17.1",
+    "npm": "^9.6.7"
+  },
+  "volta": {
+    "node": "18.17.1",
+    "npm": "9.6.7"
+  },
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Learn to code with version control system using Git.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www.js",
+    "dev": "nodemon ./bin/www-nodemon.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "requirements-check": "npx node-check-version",
+    "postinstall": "npm run requirements-check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngodingbang/rwid-git.git"
+  },
+  "keywords": [
+    "RWID",
+    "Git",
+    "JavaScript"
+  ],
+  "author": {
+    "name": "Septianata Rizky Pratama",
+    "email": "ngodingbang@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ngodingbang/rwid-git/issues"
+  },
+  "homepage": "https://github.com/ngodingbang/rwid-git#readme",
+  "dependencies": {
+    "@ianriizky/node-check-version": "^1.0.1",
+    "cookie-parser": "^1.4.6",
+    "debug": "^4.3.4",
+    "dotenv": "^16.3.1",
+    "dotenv-expand": "^10.0.0",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "minimist": "^1.2.8",
+    "morgan": "^1.10.0",
+    "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1"
+  }
+}

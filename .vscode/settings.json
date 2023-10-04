@@ -3,6 +3,5 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "eslint.probe": ["javascript"],
-  "jest.autoRun": "off",
-  "vetur.validation.template": false
+  "jest.autoRun": "off"
 }

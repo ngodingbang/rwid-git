@@ -2,7 +2,19 @@
 
 All notable changes to `RWID Git` will be documented in this file.
 
-## [Unreleased](https://github.com/ngodingbang/rwid-git/compare/0.3.0...develop)
+## [Unreleased](https://github.com/ngodingbang/rwid-git/compare/1.0.0...develop)
+
+## [1.0.0](https://github.com/ngodingbang/rwid-git/releases/tag/1.0.0) - 2023-09-29
+
+- chore: npm init and using express.js by [@ngodingbang](https://github.com/ngodingbang) in [#b8984dd](https://github.com/ngodingbang/rwid-git/commit/b8984dd52101c1cf19620d4fd7fb5366224a77de).
+- feat: finish javascript nodejs html page by [@ngodingbang](https://github.com/ngodingbang) in [#50e1264](https://github.com/ngodingbang/rwid-git/commit/50e12643ba8e71f49afcd381ce73864d26d5896e).
+- feat: finish javascript nodejs standary library html page by [@ngodingbang](https://github.com/ngodingbang) in [#5bd35b6](https://github.com/ngodingbang/rwid-git/commit/5bd35b6f0dff0d193683bc7a6c1f510900f671f0).
+- fix: revise javascript standard library html page folder path by [@ngodingbang](https://github.com/ngodingbang) in [#8278d67](https://github.com/ngodingbang/rwid-git/commit/8278d6778b9f0b6a9bd72b4c8363f5c97f745951).
+- refactor: improve script on javascript module page by [@ngodingbang](https://github.com/ngodingbang) in [#11f8720](https://github.com/ngodingbang/rwid-git/commit/11f8720a2d3905f11c489063cc30cb6cdb70e841).
+- feat: create javascript asynchronous fetch api page by [@ngodingbang](https://github.com/ngodingbang) in [#9996790](https://github.com/ngodingbang/rwid-git/commit/99967905df1c62e01515121b1bfa8037eb8239a1).
+- feat: using @ianriizky/node-check-version to run node and yarn version checking by [@ngodingbang](https://github.com/ngodingbang) in [#6d0bb7a](https://github.com/ngodingbang/rwid-git/commit/6d0bb7ae6aecb5f4fb53a4ae9327cf645a7420cf).
+- chore!: drop support for nvm and using volta as node version manager by [@ngodingbang](https://github.com/ngodingbang) in [#9647f13](https://github.com/ngodingbang/rwid-git/commit/9647f136733252e3339a11f36e09a76ca080953c).
+- fix: create env.js to handle env configuration load by [@ngodingbang](https://github.com/ngodingbang) in [#162db44](https://github.com/ngodingbang/rwid-git/commit/162db44826e0896f8904b7f4a7a702f2bf1c02d2).
 
 ## [0.3.0](https://github.com/ngodingbang/rwid-git/releases/tag/0.3.0) - 2023-09-02
 
