@@ -1,6 +1,5 @@
 {
   "name": "rwid-git",
-  "private": true,
   "engineStrict": true,
   "engines": {
     "node": "^18.17.1",
