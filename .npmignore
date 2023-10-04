@@ -1,0 +1,11 @@
+.github/
+.vscode/
+pages/
+tests/
+.editorconfig
+.eslintignore
+.eslintrc
+.prettierrc
+app.js
+env.js
+package-lock.json
