@@ -1,106 +1,109 @@
 import { parseString } from "../../js/helper.js";
 
 /**
- * Determine whether the given value is a palindrome or not using reverse way.
- *
- * @param {string} value
- */
-function isPalindromeUsingReverse(value) {
-  value = parseString(value);
+* Reverse Method (Array)
+* @param {string} value
+*/
+function isPalindrome (value) {
+  let array = [];
 
+  for (const spread of value) {
+      array.push (spread)
+  }
+
+  let reverseArray = [];
+
+  for (i = 1; i <= array.length; i++) {
+      reverseArray.push (array [array.length - i]);
+  }
+
+  console.log (array);
+  console.log (reverseArray);
+  console.log (JSON.stringify (array));
+  console.log (JSON.stringify (reverseArray));
+
+  return JSON.stringify(array) === JSON.stringify(reverseArray);
+}
+
+console.log (isPalindrome ("racecar"));
+
+/**
+* Reverse Method (String)
+* @param {string} value
+*/
+function isPalindrome2 (value) {
   let newValue = "";
 
   for (let index = value.length - 1; index >= 0; index--) {
     newValue += value[index];
   }
 
+  console.log (newValue);
+
   return value === newValue;
 }
 
+console.log (isPalindrome2 ("racecar"));
+
 /**
- * Determine whether the given value is a palindrome or not using loop way.
- *
- * @param {string} value
- */
-function isPalindromeUsingLoop(value) {
-  value = parseString(value);
-
-  for (let index = 0; index < Math.floor(value.length / 2); index++) {
-    const lastCharacterIndex = value.length - (index + 1);
-
-    const firstCharacter = value[index];
-    const lastCharacter = value[lastCharacterIndex];
-
-    if (firstCharacter !== lastCharacter) {
-      return false;
-    }
+* Using Function Generator
+* @param {*} value 
+* @returns 
+*/
+function isPalindrome5 (value) {
+  function* fGen () {
+      for (const spread of value) {
+          yield spread;
+      }
   }
+
+  function* fgen2 () {
+      for (i = 1; i <= array.length; i++) {
+          yield fGen [fGen.length - i];
+      }
+  }
+
+  return JSON.stringify(fGen) === JSON.stringify(fgen2);
+}
+
+console.log (isPalindrome5 ("racecar"));
+
+/**
+* Using Loop
+* @param {string} value
+*/
+function isPalindrome3 (value) {
+  console.log (value.length);
+
+  label : for (index = 0; index < Math.ceil(value.length/2); index++) {
+      const firstChar = value [index];
+      const lastChar = value [value.length - (index + 1)];
+      if (lastChar !== firstChar) {
+          return false;
+      }   console.log (`iteration ${value} ${index + 1}`);//Just to see how many iteration been executed
+          continue label; //Turns out weren't necessary, cuz there's only one loop
+  }    
 
   return true;
 }
 
-/**
- * Determine whether the given value is a palindrome or not using recursive way.
- *
- * @param {string} value
- * @param {number} index
- */
-function isPalindromeUsingRecursive(value, index = 0) {
-  value = parseString(value);
+console.log (isPalindrome3 ("racecar"));
 
-  if (index < Math.floor(value.length / 2)) {
-    const lastCharacterIndex = value.length - (index + 1);
+ /** 
+* Using Recursive Function
+* @param {string} value
+* @param {number} index
+*/
+function isPalindrome4 (value, index = 0) { //What a way to init an index
+  const firstChar = value [index];
+  const lastChar = value [value.length - (index + 1)]
 
-    const firstCharacter = value[index];
-    const lastCharacter = value[lastCharacterIndex];
-
-    if (firstCharacter !== lastCharacter) {
+  if (firstChar !== lastChar) {
       return false;
-    }
-
-    return isPalindromeUsingRecursive(value, index + 1);
-  }
-
-  return true;
+  }   else if (index < Math.ceil (value.length/2)) {
+          return isPalindrome4 (value, index + 1);
+  }           console.log (`iteration ${value} ${index + 1}`);  
+              return true;
 }
 
-/**
- * Return palindrome human-readable description.
- *
- * @param {string} word
- * @param {"reverse" | "loop" | "recursive"} method
- * @throws {Error}
- */
-function generatePalindromeStatus(word, method) {
-  let isPalindrome;
-
-  if (method === "reverse") {
-    isPalindrome = isPalindromeUsingReverse(word);
-  } else if (method === "loop") {
-    isPalindrome = isPalindromeUsingLoop(word);
-  } else if (method === "recursive") {
-    isPalindrome = isPalindromeUsingRecursive(word);
-  } else {
-    throw new Error("Method must be reverse, loop, or recursive.");
-  }
-
-  return isPalindrome
-    ? "Yes, this word is a palindrome."
-    : "No, this word is not a palindrome.";
-}
-
-document.getElementById("form").addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  try {
-    const word = event.target["word"].value;
-    const method = event.target["method"].value;
-
-    const result = generatePalindromeStatus(word, method);
-
-    document.getElementById("result").textContent = result;
-  } catch (error) {
-    alert(error.message);
-    console.error(error);
-  }
-});
+console.log (isPalindrome4 ("silvivlis"));
