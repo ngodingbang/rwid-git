@@ -44,6 +44,7 @@ app.get("/favicon.ico", async (req, res) => {
  * Static pages.
  */
 app.use(express.static("pages"));
+app.use("/src", express.static("src"));
 
 app.use(
   /**
