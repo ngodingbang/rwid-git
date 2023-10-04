@@ -1,74 +1,50 @@
 import { parseNumber } from "../../js/helper.js";
 
-export class Factorial {
-  /** @type {number} */
-  n;
-
+/**
+ * Factorial class to compute factorial of a number using both iterative and recursive methods.
+ */
+class Factorial {
   /**
-   * @param {number} n
+   * Initializes a new instance of the Factorial class.
+   * @param {number} n 
    */
   constructor(n) {
-    this.n = parseNumber(n);
+    this.n = n;
   }
 
   /**
-   * Count factorial number from the given "n" value using loop way.
+   * Computes the factorial using an iterative approach.
+   * @returns {number} 
    */
-  countUsingLoop() {
+  factorialUsingLoop() {
     let result = 1;
-
-    for (let index = this.n; index > 0; index--) {
-      result = result * index;
+    for (let index = 2; index <= this.n; index++) {
+      result *= index;
     }
-
     return result;
   }
 
   /**
-   * Count factorial number from the given "n" value using recursive way.
-   *
-   * @param {number | undefined} n
-   * @returns {number}
+   * Computes the factorial using a recursive approach.
+   * @param {number} [n=this.n] 
+   * @returns {number} 
    */
-  countUsingRecursive(n = undefined) {
-    n ||= this.n;
-
-    if (n < 2) {
-      return 1;
-    }
-
-    return n * this.countUsingRecursive(n - 1);
+  factorialUsingRecursive(n = this.n) {
+    return n <= 1
+      ? 1
+      : this.factorialUsingRecursive(n - 1) * n;
   }
 
   /**
-   * Count factorial number from the given "n" value.
-   *
-   * @param {"loop" | "recursive"} method
-   * @throws {Error}
+   * Logs the factorial results (for both iterative and recursive methods) to the console.
    */
-  count(method) {
-    if (method == "loop") {
-      return this.countUsingLoop();
-    } else if (method == "recursive") {
-      return this.countUsingRecursive();
-    } else {
-      throw new Error("Method must be loop or recursive.");
-    }
+  showAtConsole() {
+    const loopResult = this.factorialUsingLoop();
+    const recursiveResult = this.factorialUsingRecursive();
+    console.info(`Factorial (Loop): ${loopResult}`);
+    console.info(`Factorial (Recursive): ${recursiveResult}`);
   }
 }
 
-document.getElementById("form").addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  try {
-    const n = event.target["n"].value;
-    const method = event.target["method"].value;
-
-    const result = new Factorial(n).count(method);
-
-    document.getElementById("result").textContent = result;
-  } catch (error) {
-    alert(error.message);
-    console.error(error);
-  }
-});
+const Factorial5 = new Factorial(10);
+Factorial5.showAtConsole();
