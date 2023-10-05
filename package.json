@@ -17,6 +17,7 @@
     "start": "node ./bin/www.js",
     "dev": "nodemon ./bin/www-nodemon.js",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
+    "test-coverage": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage",
     "requirements-check": "npx node-check-version",
     "postinstall": "npm run requirements-check"
   },
