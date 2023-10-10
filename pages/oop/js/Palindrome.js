@@ -28,7 +28,7 @@ export class Palindrome {
   isPalindrome2 (value = this.input) {
     console.log (value.length);
 
-    label : for (index = 0; index < Math.ceil(value.length/2); index++) {
+    label : for (let index = 0; index < Math.ceil(value.length/2); index++) {
       const firstChar = value [index];
         
       const lastChar = value [value.length - (index + 1)];
@@ -55,7 +55,7 @@ export class Palindrome {
     if (firstChar !== lastChar) {
       return false;
     } else if (index < Math.ceil (value.length/2)) {
-      return isPalindrome4 (value, index + 1);
+      return this.isPalindrome3 (value, index + 1);
     } console.log (`iteration ${value} ${index + 1}`);  
       return true;
     }

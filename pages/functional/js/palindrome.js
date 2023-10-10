@@ -17,11 +17,6 @@ function isPalindrome(value) {
     reverseArray.push(array[array.length - i]);
   }
 
-  console.log(array);
-  console.log(reverseArray);
-  console.log(JSON.stringify(array));
-  console.log(JSON.stringify(reverseArray));
-
   return JSON.stringify(array) === JSON.stringify(reverseArray);
 }
 
@@ -32,17 +27,17 @@ function isPalindrome(value) {
 function isPalindrome2(value) {
   console.log(value.length);
 
-  label: for (index = 0; index < Math.ceil(value.length / 2); index++) {
+  label: for (let index = 0; index < Math.ceil(value.length / 2); index++) {
     const firstChar = value[index];
-    
+
     const lastChar = value[value.length - (index + 1)];
-    
+
     if (lastChar !== firstChar) {
       return false;
     }
-    
+
     console.log(`iteration ${value} ${index + 1}`);
-    
+
     continue label;
   }
 
@@ -76,7 +71,7 @@ function isPalindrome3(value) {
  */
 function isPalindrome4(value, index = 0) {
   const firstChar = value[index];
-  
+
   const lastChar = value[value.length - (index + 1)];
 
   if (firstChar !== lastChar) {
@@ -86,7 +81,7 @@ function isPalindrome4(value, index = 0) {
   }
 
   console.log(`iteration ${value} ${index + 1}`);
-  
+
   return true;
 }
 
