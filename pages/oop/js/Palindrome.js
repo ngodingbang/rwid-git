@@ -1,6 +1,6 @@
 import { parseString } from "../../js/helper.js";
 
-class Palindrome {
+export class Palindrome {
   /**
    * Initializes a new instance of the Palindrome class.
    * @param {string} n 

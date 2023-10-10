@@ -1,6 +1,6 @@
 import { parseNumber } from "../../js/helper.js";
 
-class Fibonacci {
+export class Fibonacci {
   /**
    * @param {number} n 
    */

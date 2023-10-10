@@ -1,6 +1,6 @@
 import { parseNumber } from "../../js/helper.js";
 
-class Factorial {
+export class Factorial {
   /**
    * @param {number} n 
    */

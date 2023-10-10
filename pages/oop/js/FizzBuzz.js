@@ -1,7 +1,6 @@
 import { parseNumber } from "../../js/helper.js";
 
-
-class FizzBuzz {
+export class FizzBuzz {
   /**
    * Initializes a new instance of the FizzBuzz class.
    * @param {number} n 
