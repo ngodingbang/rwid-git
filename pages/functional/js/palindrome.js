@@ -1,109 +1,132 @@
 import { parseString } from "../../js/helper.js";
 
 /**
-* Reverse Method (Array)
-* @param {string} value
-*/
-function isPalindrome (value) {
+ * Reverse Method Approach
+ * @param {string} value
+ */
+function isPalindrome(value) {
   let array = [];
 
   for (const spread of value) {
-      array.push (spread)
+    array.push(spread);
   }
 
   let reverseArray = [];
 
   for (i = 1; i <= array.length; i++) {
-      reverseArray.push (array [array.length - i]);
+    reverseArray.push(array[array.length - i]);
   }
 
-  console.log (array);
-  console.log (reverseArray);
-  console.log (JSON.stringify (array));
-  console.log (JSON.stringify (reverseArray));
+  console.log(array);
+  console.log(reverseArray);
+  console.log(JSON.stringify(array));
+  console.log(JSON.stringify(reverseArray));
 
   return JSON.stringify(array) === JSON.stringify(reverseArray);
 }
 
-console.log (isPalindrome ("racecar"));
-
 /**
-* Reverse Method (String)
-* @param {string} value
-*/
-function isPalindrome2 (value) {
-  let newValue = "";
+ * Iterative Approach
+ * @param {string} value
+ */
+function isPalindrome2(value) {
+  console.log(value.length);
 
-  for (let index = value.length - 1; index >= 0; index--) {
-    newValue += value[index];
+  label: for (index = 0; index < Math.ceil(value.length / 2); index++) {
+    const firstChar = value[index];
+    
+    const lastChar = value[value.length - (index + 1)];
+    
+    if (lastChar !== firstChar) {
+      return false;
+    }
+    
+    console.log(`iteration ${value} ${index + 1}`);
+    
+    continue label;
   }
 
-  console.log (newValue);
-
-  return value === newValue;
+  return true;
 }
 
-console.log (isPalindrome2 ("racecar"));
-
 /**
-* Using Function Generator
-* @param {*} value 
-* @returns 
-*/
-function isPalindrome5 (value) {
-  function* fGen () {
-      for (const spread of value) {
-          yield spread;
-      }
+ * Function Generator Approach
+ * @param {string} value
+ */
+function isPalindrome3(value) {
+  function* fGen() {
+    for (const spread of value) {
+      yield spread;
+    }
   }
 
-  function* fgen2 () {
-      for (i = 1; i <= array.length; i++) {
-          yield fGen [fGen.length - i];
-      }
+  function* fgen2() {
+    for (i = 1; i <= array.length; i++) {
+      yield fGen[fGen.length - i];
+    }
   }
 
   return JSON.stringify(fGen) === JSON.stringify(fgen2);
 }
 
-console.log (isPalindrome5 ("racecar"));
-
 /**
-* Using Loop
-* @param {string} value
-*/
-function isPalindrome3 (value) {
-  console.log (value.length);
+ * Recursive Approach
+ * @param {string} value
+ * @param {number} index
+ */
+function isPalindrome4(value, index = 0) {
+  const firstChar = value[index];
+  
+  const lastChar = value[value.length - (index + 1)];
 
-  label : for (index = 0; index < Math.ceil(value.length/2); index++) {
-      const firstChar = value [index];
-      const lastChar = value [value.length - (index + 1)];
-      if (lastChar !== firstChar) {
-          return false;
-      }   console.log (`iteration ${value} ${index + 1}`);//Just to see how many iteration been executed
-          continue label; //Turns out weren't necessary, cuz there's only one loop
-  }    
+  if (firstChar !== lastChar) {
+    return false;
+  } else if (index < Math.ceil(value.length / 2)) {
+    return isPalindrome4(value, index + 1);
+  }
 
+  console.log(`iteration ${value} ${index + 1}`);
+  
   return true;
 }
 
-console.log (isPalindrome3 ("racecar"));
+/**
+ * @param {string} word
+ * @param {"reverse" | "loop" | "recursive"} method
+ * @throws {Error}
+ */
+function generatePalindromeStatus(word, method) {
+  let isPalindrome;
 
- /** 
-* Using Recursive Function
-* @param {string} value
-* @param {number} index
-*/
-function isPalindrome4 (value, index = 0) { //What a way to init an index
-  const firstChar = value [index];
-  const lastChar = value [value.length - (index + 1)]
+  if (method === "reverse") {
+    isPalindrome = isPalindrome(word);
+  } else if (method === "loop") {
+    isPalindrome = isPalindrome2(word);
+  } else if (method === "recursive") {
+    isPalindrome = isPalindrome4(word);
+  } else if (method === "generative") {
+    isPalindrome = isPalindrome3(word);
+  } else {
+    throw new Error("Method must be reverse, loop, or recursive.");
+  }
 
-  if (firstChar !== lastChar) {
-      return false;
-  }   else if (index < Math.ceil (value.length/2)) {
-          return isPalindrome4 (value, index + 1);
-  }           console.log (`iteration ${value} ${index + 1}`);  
-              return true;
+  return isPalindrome
+    ? "Yes, this word is a palindrome."
+    : "No, this word is not a palindrome.";
 }
 
-console.log (isPalindrome4 ("silvivlis"));
+document.getElementById("form").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  try {
+    const word = event.target["word"].value;
+    const method = event.target["method"].value;
+
+    const result = generatePalindromeStatus(word, method);
+
+    document.getElementById("result").textContent = result;
+  } catch (error) {
+    alert(error.message);
+    console.error(error);
+  }
+});

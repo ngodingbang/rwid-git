@@ -1,51 +1,48 @@
 import { parseNumber } from "../../js/helper.js";
 
 /**
-* Using Simple Loop
+* FizzBuzz Loop Approach
 * @param {number} sequence
 */
 function generateFizzBuzz (sequence) {
-  for (let i = 1; i <= sequence; i++) {
-      if (i % 4 === 0 || i % 7 === 0) {
-          console.log (`fizz buzz ${i}`);
+    let array = [];
+    
+    for (let i = 1; i <= sequence; i++) {
+        if (i % 4 === 0 || i % 7 === 0) {
+          array.push (`fizz buzz ${i}`);
           continue;
-      } else if (i % 2 === 1) {
-          console.log (`fizz ${i}`)
-      } else if (i % 2 === 0) {
-          console.log (`buzz ${i}`)
-      } 
-  }
+        } else if (i % 2 === 1) {
+          array.push (`fizz ${i}`)
+        } else if (i % 2 === 0) {
+          array.push (`buzz ${i}`)
+        } 
+    }
+
+    return array;
 }
 
-generateFizzBuzz (8);
-
-/**
-* Using concept "Const of" and  "Function as a parameter"
-* @param {()} sequence 
-*/
-function generateFizzBuzz2 (sequence) {
-  for (const i of sequence)
-  if (i % 4 === 0 || i % 7 === 0) {
-      console.log (`fizz buzz ${i}`);
-  } else if (i % 2 === 1) {
-      console.log (`fizz ${i}`)
-  } else if (i % 2 === 0) {
-      console.log (`buzz ${i}`)
-  }
-}
-
-/**
-* 
-* @param {number} customNumber 
-*/
-numberGenerator = function (customNumber) {
-  let array = []; 
+document.getElementById("form").addEventListener("submit", function (event) {
+    event.preventDefault();
   
-  for (let i = 1; i <= customNumber; i++) {
-      array [i - 1] = i;
-   }
-
-  return array;
-}
-
-generateFizzBuzz2 (numberGenerator (8));
+    try {
+      const sequence = event.target["sequence"].value;
+  
+      const fizzBuzzs = generateFizzBuzz(sequence);
+  
+      document.getElementById("result").innerHTML = fizzBuzzs
+        .map(
+          (fizzBuzz, index) =>
+            `<div class="result-item-fizzbuzz bg-${
+              {
+                "fizz buzz": "red",
+                fizz: "blue",
+                buzz: "green",
+              }[fizzBuzz]
+            }">${index + 1} ${fizzBuzz}</div>`,
+        )
+        .join("");
+    } catch (error) {
+      alert(error.message);
+      console.error(error);
+    }
+  });
