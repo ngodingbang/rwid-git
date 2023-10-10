@@ -1,35 +1,36 @@
 import { parseNumber } from "../../js/helper.js";
 
 export class FizzBuzz {
-  /** @type {number} */
-  sequence;
-
   /**
-   * @param {number} sequence
+   * Initializes a new instance of the FizzBuzz class.
+   * @param {number} n 
    */
-  constructor(sequence) {
-    this.sequence = parseNumber(sequence);
+  constructor(n) {
+    this.n = n;
   }
 
   /**
-   * Create an array filled by "fizz", "buzz", or "fizz buzz" based on
-   * this requirement below (highest priority from above).
-   *
-   * Muliples of 4 or 7: "fizz buzz"
-   * Odd sequence: "fizz"
-   * Even sequence: "buzz"
+   * Iterative Approach
+   * @param {number} [index=this.n] 
+   * @yields {string} 
    */
-  generate() {
+  *fizzBuzzGenerator(index = this.n) {
+    for (let i = 1; i < index + 1; i++) {
+      yield i % 4 === 0 || i % 7 === 0
+        ? `Iteration ${i} : Fizz Buzz`
+        : i % 2 === 0
+        ? `Iteration ${i} : Fizz`
+        : i % 2 === 1
+        ? `Iteration ${i} : Buzz`
+        : undefined;
+    }
+  }
+
+  generate () {
     let result = [];
 
-    for (let index = 1; index <= this.sequence; index++) {
-      if (index % 4 === 0 || index % 7 === 0) {
-        result.push("fizz buzz");
-      } else if (index % 2 === 1) {
-        result.push("fizz");
-      } else if (index % 2 === 0) {
-        result.push("buzz");
-      }
+    for (const x of this.fizzBuzzGenerator ()) {
+      result.push (x);
     }
 
     return result;

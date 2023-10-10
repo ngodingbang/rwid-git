@@ -1,50 +1,40 @@
 import { parseNumber } from "../../js/helper.js";
 
 /**
- * Count factorial number from the given "n" value using loop way.
- *
- * @param {number} n
+ * Factorial Iterative Approach
+ * @param {number} n 
  */
-function countFactorialUsingLoop(n) {
-  n = parseNumber(n);
+function factorialUsingLoop (n) {
+  let formula = n; 
 
-  let result = 1;
-
-  for (let index = n; index > 0; index--) {
-    result *= index;
+  for (let i = 1; i < n; i += 1) {
+    formula *= (n-i);
   }
-
-  return result;
+  
+  return formula;
 }
 
 /**
- * Count factorial number from the given "n" value using recursive way.
- *
- * @param {number} n
- * @returns {number}
- */
-function countFactorialUsingRecursive(n) {
-  n = parseNumber(n);
-
-  if (n < 2) {
-    return 1;
-  }
-
-  return n * countFactorialUsingRecursive(n - 1);
+* Factorial Recursive Approach
+* @param {number} n 
+*/
+function factorialUsingrecursive (n) {
+  return n <= 1 
+    ? 1 
+    : factorialUsingrecursive (n - 1) * n; 
 }
 
-/**
+  /**
  * Count factorial number from the given "n" value.
- *
  * @param {number} n
  * @param {"loop" | "recursive"} method
  * @throws {Error}
  */
 function countFactorial(n, method) {
   if (method == "loop") {
-    return countFactorialUsingLoop(n);
+    return factorialUsingLoop(n);
   } else if (method == "recursive") {
-    return countFactorialUsingRecursive(n);
+    return factorialUsingrecursive(n);
   } else {
     throw new Error("Method must be loop or recursive.");
   }

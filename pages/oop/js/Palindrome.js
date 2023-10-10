@@ -1,84 +1,77 @@
 import { parseString } from "../../js/helper.js";
 
 export class Palindrome {
-  /** @type {string} */
-  value;
-
   /**
-   * @param {string} value
+   * Initializes a new instance of the Palindrome class.
+   * @param {string} n 
    */
-  constructor(value) {
-    this.value = parseString(value);
+  constructor(n) {
+    this.input = n;
   }
 
   /**
-   * Determine whether the given value is a palindrome or not using reverse way.
+   * Reverse Approach
+   * @param {string} [value = this.input] 
    */
-  evaluateUsingReverse() {
-    let newValue = "";
-
-    for (let index = this.value.length - 1; index >= 0; index--) {
-      newValue += this.value[index];
-    }
-
-    return this.value === newValue;
+  isPalindrome(value = this.input) {
+    const cleanedInput = value.replace(/\s/g, "").toLowerCase();
+    
+    const reversedInput = cleanedInput.split("").reverse().join("");
+    
+    return cleanedInput === reversedInput;
   }
 
   /**
-   * Determine whether the given value is a palindrome or not using loop way.
-   */
-  evaluateUsingLoop() {
-    for (let index = 0; index < Math.floor(this.value.length / 2); index++) {
-      const lastCharacterIndex = this.value.length - (index + 1);
+  * Iterative Approach
+  * @param {string} [value = this.input]
+  */
+  isPalindrome2 (value = this.input) {
+    console.log (value.length);
 
-      const firstCharacter = this.value[index];
-      const lastCharacter = this.value[lastCharacterIndex];
-
-      if (firstCharacter !== lastCharacter) {
+    label : for (let index = 0; index < Math.ceil(value.length/2); index++) {
+      const firstChar = value [index];
+        
+      const lastChar = value [value.length - (index + 1)];
+        
+      if (lastChar !== firstChar) {
         return false;
-      }
-    }
+      } console.log (`iteration ${value} ${index + 1}`);
+        continue label; 
+      }    
 
     return true;
   }
 
-  /**
-   * Determine whether the given value is a palindrome or not using recursive way.
-   *
-   * @param {number | undefined} index
-   */
-  evaluateUsingRecursive(index = undefined) {
-    index ||= 0;
+  /** 
+  * Recursive Approach
+  * @param {string} [value = this.input]
+  * @param {number} index
+  */
+  isPalindrome3 (value = this.input, index = 0) { 
+    const firstChar = value [index];
+    
+    const lastChar = value [value.length - (index + 1)]
 
-    if (index < Math.floor(this.value.length / 2)) {
-      const lastCharacterIndex = this.value.length - (index + 1);
-
-      const firstCharacter = this.value[index];
-      const lastCharacter = this.value[lastCharacterIndex];
-
-      if (firstCharacter !== lastCharacter) {
-        return false;
-      }
-
-      return this.evaluateUsingRecursive(this.value, index + 1);
+    if (firstChar !== lastChar) {
+      return false;
+    } else if (index < Math.ceil (value.length/2)) {
+      return this.isPalindrome3 (value, index + 1);
+    } console.log (`iteration ${value} ${index + 1}`);  
+      return true;
     }
 
-    return true;
-  }
-
   /**
-   * Determine whether the given value is a palindrome or not.
-   *
-   * @typedef {"reverse" | "loop" | "recursive"} Method
-   * @param {Method} method
-   */
+  * Determine whether the given value is a palindrome or not.
+  * @typedef {"reverse" | "loop" | "recursive"} Method
+  * @param {Method} method
+  */
   evaluate(method) {
     if (method === "reverse") {
-      return this.evaluateUsingReverse();
+      return this.isPalindrome();
     } else if (method === "loop") {
-      return this.evaluateUsingLoop();
+      return this.isPalindrome2();
     } else if (method === "recursive") {
-      return this.evaluateUsingRecursive();
+      return this.isPalindrome3();
     } else {
       throw new Error("Method must be reverse, loop, or recursive.");
     }
@@ -86,7 +79,6 @@ export class Palindrome {
 
   /**
    * Return palindrome human-readable description.
-   *
    * @param {Method} method
    */
   generateStatus(method) {
@@ -101,6 +93,7 @@ document.getElementById("form").addEventListener("submit", function (event) {
 
   try {
     const word = event.target["word"].value;
+    
     const method = event.target["method"].value;
 
     const result = new Palindrome(word).generateStatus(method);

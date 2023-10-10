@@ -1,60 +1,51 @@
 import { parseNumber } from "../../js/helper.js";
 
 export class Factorial {
-  /** @type {number} */
-  n;
-
   /**
-   * @param {number} n
+   * @param {number} n 
    */
   constructor(n) {
-    this.n = parseNumber(n);
+    this.n = n;
   }
 
   /**
-   * Count factorial number from the given "n" value using loop way.
+   * Iterative Approach
+   * @param {number} [n=this.n] 
    */
-  countUsingLoop() {
+  factorialUsingLoop() {
     let result = 1;
-
-    for (let index = this.n; index > 0; index--) {
-      result = result * index;
+    
+    for (let index = 2; index <= this.n; index++) {
+      result *= index;
     }
-
+    
     return result;
   }
 
   /**
-   * Count factorial number from the given "n" value using recursive way.
-   *
-   * @param {number | undefined} n
-   * @returns {number}
+   * Recursive approach.
+   * @param {number} [n=this.n] 
    */
-  countUsingRecursive(n = undefined) {
-    n ||= this.n;
-
-    if (n < 2) {
-      return 1;
-    }
-
-    return n * this.countUsingRecursive(n - 1);
+  factorialUsingRecursive(n = this.n) {
+    return n <= 1
+      ? 1
+      : this.factorialUsingRecursive(n - 1) * n;
   }
 
-  /**
+    /**
    * Count factorial number from the given "n" value.
-   *
    * @param {"loop" | "recursive"} method
    * @throws {Error}
    */
-  count(method) {
-    if (method == "loop") {
-      return this.countUsingLoop();
-    } else if (method == "recursive") {
-      return this.countUsingRecursive();
-    } else {
-      throw new Error("Method must be loop or recursive.");
+    count(method) {
+      if (method == "loop") {
+        return this.factorialUsingLoop();
+      } else if (method == "recursive") {
+        return this.factorialUsingRecursive();
+      } else {
+        throw new Error("Method must be loop or recursive.");
+      }
     }
-  }
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
@@ -62,6 +53,7 @@ document.getElementById("form").addEventListener("submit", function (event) {
 
   try {
     const n = event.target["n"].value;
+    
     const method = event.target["method"].value;
 
     const result = new Factorial(n).count(method);

@@ -1,50 +1,39 @@
 import { parseNumber } from "../../js/helper.js";
 
 /**
- * Create an array filled by fibonacci sequence using loop way.
- *
- * @param {number} sequence
- */
-function generateFibonacciUsingLoop(sequence) {
-  sequence = parseNumber(sequence);
-
-  let result = [];
-  let prev = 0;
-  let next = 1;
-
-  for (let index = 0; index < sequence; index++) {
-    result.push(prev);
-
-    const current = prev + next;
-    prev = next;
-    next = current;
-  }
-
-  return result;
+* Fibonacci Recursive Approach
+* @param {number} sequence 
+*/
+function fibbonaciUsingRecursive (sequence) {
+  return sequence < 1
+    ? 0 
+    : sequence <= 2
+    ? 1
+    : fibbonaciUsingRecursive (sequence - 1) 
+    + fibbonaciUsingRecursive (sequence - 2);
 }
 
 /**
- * Create an array filled by fibonacci sequence using recursive way.
- *
- * @param {number} sequence
- */
-function generateFibonacciUsingRecursive(sequence) {
-  /**
-   * @param {number} n
-   * @returns {number}
-   */
-  function fibonacci(n) {
-    return n < 1 ? 0 : n <= 2 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
+* Fibonacci Loop Approach
+* @param {number} sequence 
+*/
+function fibbonaciUsingLoop (sequence) {
+  if (sequence < 1) {
+    return 0;
+  } else if (sequence <= 2) {
+    return 1
   }
 
-  sequence = parseNumber(sequence);
+  let previous = 0;
+  
+  let next = 1;
+  
+  let result = 1;
 
-  let result = [];
-
-  for (let index = 0; index < sequence; index++) {
-    const current = fibonacci(index);
-
-    result.push(current);
+  for (let iteration = 2; iteration <= sequence; iteration++) {
+      result = previous + next;
+      previous = next;
+      next = result;
   }
 
   return result;
@@ -52,16 +41,15 @@ function generateFibonacciUsingRecursive(sequence) {
 
 /**
  * Create an array filled by fibonacci sequence.
- *
  * @param {number} sequence
  * @param {"loop"| "recursive"} method
  * @throws {Error}
  */
 function generateFibonacci(sequence, method) {
   if (method === "loop") {
-    return generateFibonacciUsingLoop(sequence);
+    return fibbonaciUsingLoop(sequence);
   } else if (method === "recursive") {
-    return generateFibonacciUsingRecursive(sequence);
+    return fibbonaciUsingRecursive(sequence);
   } else {
     throw new Error("Method must be loop or recursive.");
   }

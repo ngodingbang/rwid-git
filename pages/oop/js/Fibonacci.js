@@ -1,90 +1,84 @@
 import { parseNumber } from "../../js/helper.js";
 
 export class Fibonacci {
-  /** @type {number} */
-  sequence;
-
   /**
-   * @param {number} sequence
+   * @param {number} n 
    */
-  constructor(sequence) {
-    this.sequence = parseNumber(sequence);
+  constructor(n) {
+    this.input = n;
   }
 
   /**
-   * @param {number} n
-   * @returns {number}
+   * Recursive Approach
+   * @param {number} [i=this.input] 
    */
-  static get(n) {
-    return n < 1 ? 0 : n <= 2 ? 1 : this.get(n - 1) + this.get(n - 2);
+  fibonacciUsingRecursive (i = this.input) {
+    return i <= 0
+      ? 0
+      : i <= 2
+      ? 1
+      : this.fibonacciUsingRecursive (i - 1)
+      + this.fibonacciUsingRecursive (i - 2);
   }
 
   /**
-   * Create an array filled by fibonacci sequence using loop way.
-   */
-  generateUsingLoop() {
-    let result = [];
-    let prev = 0;
+  * Fibonacci Loop Approach
+  * @param {number} sequence 
+  */
+  fibbonaciUsingLoop (sequence = this.input) {
+    if (sequence < 1) {
+      return 0;
+    } else if (sequence <= 2) {
+      return 1
+    }
+
+    let previous = 0;
+    
     let next = 1;
+    
+    let result = 1;
 
-    for (let index = 0; index < this.sequence; index++) {
-      result.push(prev);
-
-      const current = prev + next;
-      prev = next;
-      next = current;
+    for (let iteration = 2; iteration <= sequence; iteration++) {
+        result = previous + next;
+        previous = next;
+        next = result;
     }
 
     return result;
   }
 
   /**
-   * Create an array filled by fibonacci sequence using recursive way.
-   */
-  generateUsingRecursive() {
-    let result = [];
-
-    for (let index = 0; index < this.sequence; index++) {
-      const current = Fibonacci.get(index);
-
-      result.push(current);
-    }
-
-    return result;
-  }
-
-  /**
-   * Create an array filled by fibonacci sequence.
-   *
-   * @param {"loop" | "recursive"} method
-   */
+    * Create an array filled by fibonacci sequence.
+    * @param {"loop" | "recursive"} method
+    */
   generate(method) {
-    if (method === "loop") {
-      return this.generateUsingLoop();
-    } else if (method === "recursive") {
-      return this.generateUsingRecursive();
-    } else {
-      throw new Error("Method must be loop or recursive.");
-    }
+   if (method === "loop") {
+     return this.fibbonaciUsingLoop();
+   } else if (method === "recursive") {
+     return this.fibonacciUsingRecursive();
+   } else {
+     throw new Error("Method must be loop or recursive.");
+   }
   }
 }
 
 document.getElementById("form").addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  try {
-    const sequence = event.target["sequence"].value;
-    const method = event.target["method"].value;
-
-    const numbers = new Fibonacci(sequence).generate(method);
-
-    document.getElementById("result").innerHTML = document.getElementById(
-      "result",
+event.preventDefault(); 
+try {
+  const sequence = event.target["sequence"].value;
+  
+  const method = event.target["method"].value;
+  
+  const numbers = new Fibonacci(sequence).generate(method);
+  
+  document.getElementById("result").innerHTML = document.getElementById(
+    "result",
     ).innerHTML = numbers
-      .map(number => `<div class="result-item-fibonacci">${number}</div>`)
-      .join("");
+    .map(number => `<div class="result-item-fibonacci">${number}</div>`)
+    .join("");
   } catch (error) {
     alert(error.message);
     console.error(error);
   }
 });
+  
