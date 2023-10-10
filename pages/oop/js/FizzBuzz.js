@@ -1,8 +1,6 @@
 import { parseNumber } from "../../js/helper.js";
 
-/**
- * FizzBuzz class to generate and display a modified FizzBuzz sequence.
- */
+
 class FizzBuzz {
   /**
    * Initializes a new instance of the FizzBuzz class.
@@ -13,7 +11,7 @@ class FizzBuzz {
   }
 
   /**
-   * A generator function to yield a modified FizzBuzz sequence up to the specified number.
+   * Iterative Approach
    * @param {number} [index=this.n] 
    * @yields {string} 
    */
@@ -29,15 +27,39 @@ class FizzBuzz {
     }
   }
 
-  /**
-   * Displays the modified FizzBuzz sequence up to the number specified during class instantiation in the console.
-   */
-  showAtConsole() {
-    for (const x of this.fizzBuzzGenerator()) {
-      console.info(x);
+  generate () {
+    let result = [];
+
+    for (const x of this.fizzBuzzGenerator ()) {
+      result.push (x);
     }
+
+    return result;
   }
 }
 
-const FizzBuzz5 = new FizzBuzz(7);
-FizzBuzz5.showAtConsole();
+document.getElementById("form").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  try {
+    const sequence = event.target["sequence"].value;
+
+    const fizzBuzzs = new FizzBuzz(sequence).generate();
+
+    document.getElementById("result").innerHTML = fizzBuzzs
+      .map(
+        (fizzBuzz, index) =>
+          `<div class="result-item-fizzbuzz bg-${
+            {
+              "fizz buzz": "red",
+              fizz: "blue",
+              buzz: "green",
+            }[fizzBuzz]
+          }">${index + 1} ${fizzBuzz}</div>`,
+      )
+      .join("");
+  } catch (error) {
+    alert(error.message);
+    console.error(error);
+  }
+});

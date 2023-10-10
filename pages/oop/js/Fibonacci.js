@@ -1,11 +1,7 @@
 import { parseNumber } from "../../js/helper.js";
 
-/**
- * Fibonacci class to generate Fibonacci sequences.
- */
 class Fibonacci {
   /**
-   * Initializes a new instance of the Fibonacci class.
    * @param {number} n 
    */
   constructor(n) {
@@ -13,27 +9,76 @@ class Fibonacci {
   }
 
   /**
-   * Recursively generates a Fibonacci sequence up to the specified position.
+   * Recursive Approach
    * @param {number} [i=this.input] 
-   * @returns {number} 
    */
-  generateSequence(i = this.input) {
+  fibonacciUsingRecursive (i = this.input) {
     return i <= 0
       ? 0
       : i <= 2
       ? 1
-      : this.generateSequence(i - 1)
-      + this.generateSequence(i - 2);
+      : this.fibonacciUsingRecursive (i - 1)
+      + this.fibonacciUsingRecursive (i - 2);
   }
 
   /**
-   * Logs the Fibonacci sequence value of the specified position to the console.
-   * @param {number} [i=this.input] 
-   */
-  showAtConsole(i = this.input) {
-    console.info(`Fibonacci Sequence of ${i} is ${this.generateSequence()} `);
+  * Fibonacci Loop Approach
+  * @param {number} sequence 
+  */
+  fibbonaciUsingLoop (sequence = this.input) {
+    if (sequence < 1) {
+      return 0;
+    } else if (sequence <= 2) {
+      return 1
+    }
+
+    let previous = 0;
+    
+    let next = 1;
+    
+    let result = 1;
+
+    for (let iteration = 2; iteration <= sequence; iteration++) {
+        result = previous + next;
+        previous = next;
+        next = result;
+    }
+
+    return result;
+  }
+
+  /**
+    * Create an array filled by fibonacci sequence.
+    * @param {"loop" | "recursive"} method
+    */
+  generate(method) {
+   if (method === "loop") {
+     return this.fibbonaciUsingLoop();
+   } else if (method === "recursive") {
+     return this.fibonacciUsingRecursive();
+   } else {
+     throw new Error("Method must be loop or recursive.");
+   }
   }
 }
 
-const generateFibonacci1 = new Fibonacci(10);
-generateFibonacci1.showAtConsole();
+document.getElementById("form").addEventListener("submit", function (event) {
+event.preventDefault(); 
+try {
+  const sequence = event.target["sequence"].value;
+  
+  const method = event.target["method"].value;
+  
+  const numbers = new Fibonacci(sequence).generate(method);
+  
+  document.getElementById("result").innerHTML = document.getElementById(
+    "result",
+    ).innerHTML = numbers
+    .map(number => `<div class="result-item-fibonacci">${number}</div>`)
+    .join("");
+  } catch (error) {
+    alert(error.message);
+    console.error(error);
+  }
+});
+  
