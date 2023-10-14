@@ -2,6 +2,50 @@ import * as member from "./generateMember.js";
 import { generateTrElement } from "./generateTrElement.js";
 
 /**
+ * @param {import("../../modules/Member.js").Member} member
+ * @returns {Promise<{ member: import("../../modules/Member.js")
+ * .Member; response: ResponseRepo; }>}
+ */
+async function fetchGitHubApi(member) {
+  const username = member.username
+
+  const promiseResponse = await fetch(
+    `https://api.github.com/users/${username}`,
+  );
+    
+  return {
+    member,
+    response: await promiseResponse.json(),
+  };
+}
+
+function arrayOfMember () {
+  const members = [];
+
+  for (let index = 1; index <= 7; index++) {
+    members.push(member[`m${index}`]);
+  }
+
+  return members;
+};
+
+const members = arrayOfMember ();
+
+const response = await Promise.all( //It doesn't work with .any and i don't know why, :)
+  members.map(member => fetchGitHubApi(member)),
+);
+
+response.forEach(({ member, response }) =>
+generateTrElement({
+  index: member.index,
+  name: member.name,
+  github_url: member.github_url,
+  public_repos: response?.public_repos,
+  created_at: new Date(response?.created_at),
+}),
+);
+  
+/**
  * @typedef {{ owner?: string; repo_name?: string; }} Repo
  * @typedef {Array<Repo>} Repos
  * @typedef {{
@@ -114,34 +158,3 @@ import { generateTrElement } from "./generateTrElement.js";
     subscribers_count: number;
   }} ResponseRepo
  */
-
-/**
- * @param {import("../../modules/Member.js").Member} member
- * @returns {Promise<{ member: import("../../modules/Member.js").Member; response: ResponseRepo; }>}
- */
-async function fetchGitHubApi(member) {
-  const promiseResponse = await fetch(
-    `https://api.github.com/repos/${member.github_owner}/${member.github_repo}`,
-  );
-
-  return {
-    member,
-    response: await promiseResponse.json(),
-  };
-}
-
-const members = [member.m12];
-
-const response = await Promise.all(
-  members.map(member => fetchGitHubApi(member)),
-);
-
-response.forEach(({ member, response }) =>
-  generateTrElement({
-    index: member.index,
-    name: member.name,
-    github_url: member.github_url,
-    visibility: response?.visibility,
-    created_at: new Date(response?.created_at),
-  }),
-);

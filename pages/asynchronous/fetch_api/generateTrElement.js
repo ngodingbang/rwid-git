@@ -11,6 +11,6 @@ export function generateTrElement(data = {}, tbodyTarget = "repo-tbody") {
   row.insertCell(2).innerHTML = data?.github_url
     ? `<a href=${data?.github_url}>${data?.github_url}</a>`
     : "";
-  row.insertCell(3).textContent = data?.visibility;
+  row.insertCell(3).textContent = data?.public_repos;
   row.insertCell(4).textContent = data?.created_at;
 }
