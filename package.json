@@ -12,7 +12,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Learn to code with version control system using Git.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node ./bin/www.js",
     "dev": "nodemon ./bin/www-nodemon.js",
