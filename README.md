@@ -45,7 +45,7 @@ npm run start
 > (\*) Run this command below you want to start the server in development mode.
 
 ```bash
-npm dev
+npm run dev
 ```
 
 ## Changelog
