@@ -23,8 +23,8 @@ You can add your own study case into the list above by contributing to this repo
 
 ## Requirement
 
-- Node.js ^18.17.0
-- npm ^1.22.19
+- Node.js ^18.17.1
+- npm ^9.6.7
 
 ## Installation
 
@@ -45,7 +45,7 @@ npm run start
 > (\*) Run this command below you want to start the server in development mode.
 
 ```bash
-npm dev
+npm run dev
 ```
 
 ## Changelog

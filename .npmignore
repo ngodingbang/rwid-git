@@ -1,0 +1,16 @@
+.github/
+.vscode/
+bin/
+pages/
+tests/
+.editorconfig
+.eslintignore
+.eslintrc
+.prettierrc
+app.js
+env.js
+error-handler.js
+logger.js
+middleware.js
+view.js
+package-lock.json
