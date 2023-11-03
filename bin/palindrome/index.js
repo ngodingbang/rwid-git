@@ -4,7 +4,10 @@ import readline from "readline";
 import { generatePalindromeStatus } from "../../src/functional/palindrome.js";
 import { Palindrome } from "../../src/oop/Palindrome.js";
 import { validateApproach } from "../../src/utils/validateApproach.js";
-import { validateFactorialMethod } from "../../src/utils/validateMethod.js";
+import {
+  validateFactorialMethod,
+  validatePalindromeMethod,
+} from "../../src/utils/validateMethod.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -17,9 +20,9 @@ rl.question(
     validateApproach(approach);
 
     rl.question(
-      "Select the palindrome method (loop / recursive) : ",
+      "Select the palindrome method (reverse / loop / recursive) : ",
       method => {
-        validateFactorialMethod(method);
+        validatePalindromeMethod(method);
 
         rl.question("Input the word : ", word => {
           let result = 0;

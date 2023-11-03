@@ -1,4 +1,4 @@
-import { parseNumber, parseString } from "./parser.js";
+import { parseNumber } from "./parser.js";
 
 export const validateInputNumber = input => {
   let parsedInput = parseNumber(input);
