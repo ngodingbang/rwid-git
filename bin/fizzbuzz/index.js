@@ -1,28 +1,36 @@
-import { generateFizzBuzz } from "../../pages/functional/js/fizz-buzz.js";
-import { FizzBuzz } from "../../pages/oop/js/FizzBuzz.js";
-import { handleArgument } from "./handleArgument.js";
+#!/usr/bin/env node
 
-const cliArguments = process.argv.slice(2);
-const { type, sequence } = handleArgument(cliArguments);
-let result = 0;
+import readline from "readline";
+import { FizzBuzz } from "../../src/oop/FizzBuzz.js";
+import { generateFizzBuzz } from "../../src/functional/fizz-buzz.js";
+import { validateApproach } from "../../src/utils/validateApproach.js";
+import { validateInputNumber } from "../../src/utils/validateInput.js";
 
-if (!["oop", "functional"].includes(type)) {
-  throw new Error(`invalid type ${type}. must be "oop" or "functional"`);
-}
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-if (typeof parseInt(sequence) != "number") {
-  throw new Error(`invalid number ${sequence}. n should be a number"`);
-}
+rl.question("Select the fizz-buzz approach (functional / oop) : ", approach => {
+  validateApproach(approach);
 
-if (type == "functional") {
-  result = generateFizzBuzz(sequence);
-}
+  rl.question("Input the sequence : ", sequence => {
+    validateInputNumber(sequence);
 
-if (type == "oop") {
-  const fizzbuzz = new FizzBuzz(sequence);
-  result = fizzbuzz.generate();
-}
+    let result = 0;
 
-console.log(`------generate fizzbuzz (${type})------`);
-console.log(`fizzbuzz array with ${sequence} sequence :`);
-console.log(result);
+    if (approach == "functional") {
+      result = generateFizzBuzz(sequence);
+    }
+
+    if (approach == "oop") {
+      result = new FizzBuzz(sequence).generate();
+    }
+
+    console.log(`------generate fizzbuzz (${approach})------`);
+    console.log(`fizzbuzz array with ${sequence} sequence : `);
+    console.log(result);
+
+    rl.close();
+  });
+});

@@ -1,33 +1,40 @@
-import { countFactorial } from "../../pages/functional/js/factorial.js";
+#!/usr/bin/env node
 
-import { Factorial } from "../../pages/oop/js/Factorial.js";
+import readline from "readline";
+import { countFactorial } from "../../src/functional/factorial.js";
+import { Factorial } from "../../src/oop/Factorial.js";
+import { validateApproach } from "../../src/utils/validateApproach.js";
+import { validateFactorialMethod } from "../../src/utils/validateMethod.js";
+import { validateInputNumber } from "../../src/utils/validateInput.js";
 
-import { handleArgument } from "./handleArgument.js";
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-const cliArguments = process.argv.slice(2);
-const { type, method, n } = handleArgument(cliArguments);
-let result = 0;
+rl.question("Select the factorial approach (functional / oop) : ", approach => {
+  validateApproach(approach);
 
-if (!["oop", "functional"].includes(type)) {
-  throw new Error(`invalid type ${type}. must be "oop" or "functional"`);
-}
+  rl.question("Select the factorial method (loop / recursive) : ", method => {
+    validateFactorialMethod(method);
 
-if (!["loop", "recursive"].includes(method)) {
-  throw new Error(`invalid method ${method}. must be "loop" or "recursive"`);
-}
+    rl.question("Input the number : ", number => {
+      validateInputNumber(number);
 
-if (typeof parseInt(n) != "number") {
-  throw new Error(`invalid number ${n}. n should be a number"`);
-}
+      let result = 0;
 
-if (type == "functional") {
-  result = countFactorial(n, method);
-}
+      if (approach == "functional") {
+        result = countFactorial(number, method);
+      }
 
-if (type == "oop") {
-  const factorial = new Factorial(n);
-  result = factorial.count(method);
-}
+      if (approach == "oop") {
+        result = new Factorial(number).count(method);
+      }
 
-console.log(`------count factorial using ${method} (${type})------`);
-console.log(`factorial of ${n} is ${result}`);
+      console.log(`------count factorial using ${method} (${approach})------`);
+      console.log(`factorial of ${number} is ${result}`);
+
+      rl.close();
+    });
+  });
+});

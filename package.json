@@ -11,11 +11,17 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Learn to code with version control system using Git.",
+  "bin": {
+    "factorial": "./bin/factorial/index.js",
+    "fibonacci": "./bin/fibonacci/index.js",
+    "fizzbuzz": "./bin/fizzbuzz/index.js",
+    "palindrome": "./bin/palindrome/index.js"
+  },
   "scripts": {
-    "factorial": "node bin/factorial/index.js",
-    "fibonacci": "node bin/fibonacci/index.js",
-    "fizzbuzz": "node bin/fizzbuzz/index.js",
-    "palindrome": "node bin/palindrome/index.js"
+    "factorial": "node ./bin/factorial/index.js",
+    "fibonacci": "node ./bin/fibonacci/index.js",
+    "fizzbuzz": "node ./bin/fizzbuzz/index.js",
+    "palindrome": "node ./bin/palindrome/index.js"
   },
   "repository": {
     "type": "git",

@@ -1,30 +1,46 @@
-import { generatePalindromeStatus } from "../../pages/functional/js/palindrome.js";
-import { Palindrome } from "../../pages/oop/js/Palindrome.js";
-import { handleArgument } from "./handleArgument.js";
+#!/usr/bin/env node
 
-const cliArguments = process.argv.slice(2);
-const { type, method, word } = handleArgument(cliArguments);
-let result = 0;
+import readline from "readline";
+import { generatePalindromeStatus } from "../../src/functional/palindrome.js";
+import { Palindrome } from "../../src/oop/Palindrome.js";
+import { validateApproach } from "../../src/utils/validateApproach.js";
+import { validateFactorialMethod } from "../../src/utils/validateMethod.js";
 
-if (!["oop", "functional"].includes(type)) {
-  throw new Error(`invalid type ${type}. must be "oop" or "functional"`);
-}
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-if (!["loop", "recursive", "reverse"].includes(method)) {
-  throw new Error(
-    `invalid method ${method}. must be "loop", "recursive" or "reverse"`,
-  );
-}
+rl.question(
+  "Select the palindrome approach (functional / oop) : ",
+  approach => {
+    validateApproach(approach);
 
-if (type == "functional") {
-  result = generatePalindromeStatus(word, method);
-}
+    rl.question(
+      "Select the palindrome method (loop / recursive) : ",
+      method => {
+        validateFactorialMethod(method);
 
-if (type == "oop") {
-  const palindrome = new Palindrome(word);
-  result = palindrome.generateStatus(method);
-}
+        rl.question("Input the word : ", word => {
+          let result = 0;
 
-console.log(`------generate palindrom status using ${method} (${type})------`);
-console.log(`is ${word} a palindrome?`);
-console.log(result);
+          if (approach == "functional") {
+            result = generatePalindromeStatus(word, method);
+          }
+
+          if (approach == "oop") {
+            result = new Palindrome(word).generateStatus(method);
+          }
+
+          console.log(
+            `------generate palindrom status using ${method} (${approach})------`,
+          );
+          console.log(`is ${word} a palindrome?`);
+          console.log(result);
+
+          rl.close();
+        });
+      },
+    );
+  },
+);
